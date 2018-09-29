@@ -37,9 +37,9 @@ A megrendelt ételek kiszállítását a futárok végzik.
 #### Nem funkcionális követelmények
 * Felhasználóbarát: Megfelelően elhatárolt funkciók. Világos, látható színekkel írt szövegek. Ésszerű elrendezés.
 * Biztonság: Jelszóval védett funkciók. Titkosított jelszavak.
-* Gyors működés: Adatbázis használata
+* Gyors és megbízható működés: Adatbázis használata
   
-#### Szakterültei fogalomjegyzék
+#### Szakterületi fogalomjegyzék
 Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi kifejezések
 
 #### Szerepkörök
