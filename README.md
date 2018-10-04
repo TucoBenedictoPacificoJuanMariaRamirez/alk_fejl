@@ -43,7 +43,9 @@ A megrendelt ételek kiszállítását a futárok végzik.
 Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi kifejezések
 
 #### Szerepkörök
-A szerepköröket egyelőre nem osztottuk fel.
+* Vendég: Az oldal nem regisztrált látogatója. Megtekintheti az étlapot, valamint az étterem elérhetőségeit. Tud a menüben keresni és regisztrálni.
+* Bejelentkezett vendég: Regisztrált és bejelentkezett felhasználó, aki már rendeléseket is adhat le.
+* Futár
 
 ---
 
