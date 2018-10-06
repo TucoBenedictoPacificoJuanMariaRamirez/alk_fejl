@@ -24,13 +24,13 @@ A megrendelt ételek kiszállítását a futárok végzik.
 ### REST végpontok
 * POST /api/register - Regisztrációs végpont az új felhasználók részére
 * POST /api/login - Bejelentkező felület regisztrált felhasználók számára
----
+============
 * GET/POST /api/menus - Itt lehet listázni a menüket/hozzáadni újat
 * GET/PATCH/DELETE /api/menu/{id} - Egy adott menü lekérdezése, módosítása, törlése
----
+============
 * GET/POST /api/orders - Itt lehet lekérdezni/leadni a rendeléseket (csak bejelentkezett felhasználóknak)
 * GET/PATCH/DELETE /api/order/{id} - Egy adott rendelés lekérdezése, módosítása, törlése
----
+============
 * GET /api/couriers - A futárok adatait itt lehet lekérdezni
 * GET/PATCH/DELETE /api/courier/{id} - Egy adott futár adatainak lekérdezése, módosítása, törlése
   
