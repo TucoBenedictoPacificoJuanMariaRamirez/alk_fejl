@@ -57,6 +57,9 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 * Bejelentkezett vendég: Regisztrált és bejelentkezett felhasználó, aki már rendeléseket is adhat le.
 * Futár
 
+#### Képernyőterv
+![Ezen a képen látható az ételrendelő lap drótvázterve](mockup.jpg "Ételrendelő lap")
+
 ---
 
 #### Fejlesztők
