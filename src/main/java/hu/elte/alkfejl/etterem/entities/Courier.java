@@ -1,5 +1,7 @@
 package hu.elte.alkfejl.etterem.entities;
 
-public class Courier {
+import java.io.Serializable;
+
+public class Courier implements Serializable  {
 
 }
