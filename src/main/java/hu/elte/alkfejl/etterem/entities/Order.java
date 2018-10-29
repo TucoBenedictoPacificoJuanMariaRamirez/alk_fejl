@@ -19,15 +19,15 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
     @ManyToMany
     @JoinTable
     private List<Menu> menus;
 
-    @Column
+    @ManyToOne
     private Customer customer;
 
-    @Column
+    @ManyToOne
+    @JoinColumn
     private Courier courier;
 
 
