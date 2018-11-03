@@ -9,9 +9,7 @@ import java.util.Optional;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Integer> {
     public Optional<Order> findByCustomer(String customer);
-
+    
     public Optional<Order> findByCourier(String courier);
-
-
-
+    
 }

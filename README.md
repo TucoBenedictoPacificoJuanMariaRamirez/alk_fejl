@@ -21,10 +21,6 @@ A megrendelt ételek kiszállítását a futárok végzik.
 * Vendégek-Rendelések: egy-sok kapcsolat
 * Futárok-Rendelések: egy-sok kapcsolat
 
-#### Tábal kapcsolat diagram (egyszerűsített és teljes verzió)
-![Ezen a képen látható az adatbázis egyszerűsített kapcsolati diagramja](ER_diagram.png "Egyszerűsített kapcsolati diagram")
-![Ezen a képen látható az adatbázis kapcsolati diagramja](Etterem_UML.png "Adatbázis kapcsolati diagram")
-
 ### REST végpontok
 * POST /api/register - Regisztrációs végpont az új felhasználók részére
 * POST /api/login - Bejelentkező felület regisztrált felhasználók számára

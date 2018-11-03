@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "orders")
 public class Order implements Serializable {
 
     @Id
@@ -25,11 +26,16 @@ public class Order implements Serializable {
     private List<Menu> menus;
 
     @ManyToOne
+    @JoinColumn
     private Customer customer;
 
     @ManyToOne
     @JoinColumn
     private Courier courier;
 
-
+//    @Column
+//    @NotNull
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastLogin;
+    
 }

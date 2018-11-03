@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.etterem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "couriers")
 public class Courier implements Serializable {
 
     @Id
@@ -23,6 +25,7 @@ public class Courier implements Serializable {
     @Column
     private String name;
 
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(mappedBy = "courier")
     List<Order> orders;
 }
