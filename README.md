@@ -64,7 +64,7 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 #### Képernyőterv
 ![Ezen a képen látható az ételrendelő lap drótvázterve](mockup.jpg "Ételrendelő lap")
 
-#### Fejlesztői környezet
+### Fejlesztői környezet
 * A program bármilyen operációs rendszeren futtatható. 
 * A szoftver megfelel a MVC architeltúrának.
 * A projektet Java Spring Boot technológia használatával kivitelezzük.
@@ -84,10 +84,10 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 	* Web	
 		
 * **Fejlesztőkörnyezet felállítása:**
-	1. Git verziókezelő telepítése (Githubon történő regisztráció ajánlott)
-	2. Node.js környzet telepítése
-	3. Project klónozása (vagy letöltése) lokális gépre: git clone https://github.com/TucoBenedictoPacificoJuanMariaRamirez/alk_fejl.git
-	4. A projectkönyvtárban a függőségek telepítése
+1. Git verziókezelő telepítése (Githubon történő regisztráció ajánlott)
+2. Node.js környzet telepítése
+3. Project klónozása (vagy letöltése) lokális gépre: git clone https://github.com/TucoBenedictoPacificoJuanMariaRamirez/alk_fejl.git
+4. A projectkönyvtárban a függőségek telepítése
 
 #### Könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Könyvtárszerkezet")
