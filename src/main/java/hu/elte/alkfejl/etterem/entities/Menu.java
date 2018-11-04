@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.etterem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,8 +23,8 @@ public class Menu implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany
-    @JoinTable
+    @ManyToMany(mappedBy = "menus")
+    @JsonIgnore
     private List<Order> orders;
     
     @Column

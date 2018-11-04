@@ -5,55 +5,55 @@ import hu.elte.alkfejl.etterem.repositories.MenuRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/menus")
 public class MenuController {
 
     @Autowired
-    private MenuRepository menuRepository;
-    
+    private MenuRepository menuRepo;
+
     @GetMapping("")
     public ResponseEntity<Iterable<Menu>> getAll() {
-        return ResponseEntity.ok(menuRepository.findAll());
+        return ResponseEntity.ok(menuRepo.findAll());
     }
-    
+
+    @PostMapping("")
+    public ResponseEntity<Menu> post(@RequestBody Menu menu) {
+        menu.setId(null);
+        return ResponseEntity.ok(menuRepo.save(menu));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Menu> get(@PathVariable Integer id) {
-        Optional<Menu> oReservation = menuRepository.findById(id);
-        if (!oReservation.isPresent()) {
-            return ResponseEntity.notFound().build();   
-        }
-        return ResponseEntity.ok(oReservation.get());
-    }
-    
-    @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer id) {
-        Optional<Menu> oReservation = menuRepository.findById(id);
-        if (!oReservation.isPresent()) {
-            return ResponseEntity.notFound().build();   
-        }    
-        menuRepository.delete(oReservation.get());
-        return ResponseEntity.ok().build();
-    }
-    
-    @PutMapping("/{id}")
-    public ResponseEntity<Menu> put(@PathVariable Integer id, @RequestBody Menu menu) {
-        Optional<Menu> oMenu = menuRepository.findById(id);
-        if (!oMenu.isPresent()) {
+        Optional<Menu> menu = menuRepo.findById(id);
+        if(! menu.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        
-        menu.setId(id);
-        return ResponseEntity.ok(menuRepository.save(menu));
+        return ResponseEntity.ok(menu.get());
     }
-    
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Menu> patch(@PathVariable Integer id, @RequestBody Menu newMenu) {
+        Optional<Menu> menu = menuRepo.findById(id);
+        if(! menu.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        newMenu.setId(id);
+        return ResponseEntity.ok(menuRepo.save(newMenu));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Menu> delete(@PathVariable Integer id) {
+        Optional<Menu> menu = menuRepo.findById(id);
+        if(! menu.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        menuRepo.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+
+
+
 }

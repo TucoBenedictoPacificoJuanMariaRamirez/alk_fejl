@@ -10,5 +10,9 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepository extends CrudRepository<Customer, Integer> {
 
     public Optional<Customer> findByFullname(String fullname);
-    
+
+    public Optional<Customer> findByAddress(String address);
+
+    public Optional<Customer> findByPhone(String phone);
+
 }

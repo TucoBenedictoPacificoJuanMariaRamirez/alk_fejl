@@ -24,8 +24,8 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany(mappedBy = "orders")
-    @JsonIgnore
+    @ManyToMany
+    @JoinTable
     private List<Menu> menus;
 
     @ManyToOne

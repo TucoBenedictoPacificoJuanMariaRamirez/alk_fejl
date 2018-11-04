@@ -1,0 +1,2 @@
+INSERT INTO `CUSTOMERS` (`email`, `password`, `fullname`, `address`, `phone`, `role`) VALUES ('EMAIL_ADDR', '$2y$12$5A/sauDmp/YBL45mcj6.HeT7DT2hYhP1My1c8SLAzzcnwdQcQ48vS', 'Admin', 'address', '062099999999', 'ROLE_CUSTOMER');
+--INSERT INTO `USER` (`USERNAME`, `PASSWORD`, `FIRST_NAME`, `LAST_NAME`, `LAST_LOGIN`, `ROLE`) VALUES ('admin', '$2a$10$lW9Q6thFdccwPiRyOmQmreEtNhERoYGEsYKRL3uV97Q9u2ZGKxusW', 'Admin', 'User', null, 'ROLE_ADMIN');
