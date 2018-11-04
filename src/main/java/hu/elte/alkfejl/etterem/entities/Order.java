@@ -1,5 +1,6 @@
 package hu.elte.alkfejl.etterem.entities;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,5 +32,6 @@ public class Order implements Serializable {
     @JoinColumn
     private Courier courier;
 
+    
 
 }
