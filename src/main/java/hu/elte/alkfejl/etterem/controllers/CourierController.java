@@ -51,7 +51,7 @@ public class CourierController {
         if(! courier.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        courierRepo.deleteById(id)
+        courierRepo.deleteById(id);
         return ResponseEntity.ok().build();
     }
 

@@ -1,0 +1,1 @@
+INSERT INTO `CUSTOMERS` (`email`, `password`, `fullname`, `address`, `phone`, `role`) VALUES ('EMAIL_ADDR', '$2a$10$lW9Q6thFdccwPiRyOmQmreEtNhERoYGEsYKRL3uV97Q9u2ZGKxusW', 'Admin', 'address', '062099999999', 'ROLE_CUSTOMER');

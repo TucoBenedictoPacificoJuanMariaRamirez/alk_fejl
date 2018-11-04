@@ -1,5 +1,8 @@
 package hu.elte.alkfejl.etterem.entities;
 
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "Orders")
 public class Order implements Serializable {
 
     @Id
@@ -25,11 +29,13 @@ public class Order implements Serializable {
     private List<Menu> menus;
 
     @ManyToOne
+    @JoinColumn
     private Customer customer;
 
     @ManyToOne
     @JoinColumn
     private Courier courier;
 
+    
 
 }
