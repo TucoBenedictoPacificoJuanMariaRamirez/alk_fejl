@@ -93,6 +93,10 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 #### Könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Könyvtárszerkezet")
 
+
+#### Szekvenciadiagram
+![Ezen a képen 1 db végpont működésének leírása látható, mi történik, milyen lépések követik egymást](sequence.png "Szekvenciadiagram")
+
 ---
 
 #### Fejlesztők
