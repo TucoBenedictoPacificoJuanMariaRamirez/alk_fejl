@@ -64,6 +64,31 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 #### Képernyőterv
 ![Ezen a képen látható az ételrendelő lap drótvázterve](mockup.jpg "Ételrendelő lap")
 
+#### Fejlesztői környezet
+* A program bármilyen operációs rendszeren futtatható. 
+* A szoftver megfelel a MVC architeltúrának.
+* A projektet Java Spring Boot technológia használatával kivitelezzük.
+		
+* Használt eszközök, telepített szoftverek:
+		* Github a projekt közzétételéhez
+		* Node.js Javascript környezet
+		* NetBeans IDE 8.2
+		* H2 adatbázis-kezelő rendszer	
+		* Andular keretrendszer használata(6.1.9)
+		* AJAX a szerverrel törénő kommunikációhoz	
+* Importált J2EE csomagok:
+		* JPA
+		* lombok
+		* Web services
+		* DevTools
+		* Web	
+		
+* Fejlesztőkörnyezet felállítása:
+		1. Git verziókezelő telepítése
+			Githubon történő regisztráció ajánlott
+		2. Node.js környzet telepítése
+		3. Project klónozása (vagy letöltése) lokális gépre: git clone https://github.com/TucoBenedictoPacificoJuanMariaRamirez/alk_fejl.git
+		4. A projectkönyvtárban a függőségek telepítése
 
 #### Könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Könyvtárszerkezet")
