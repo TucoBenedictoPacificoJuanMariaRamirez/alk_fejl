@@ -65,6 +65,8 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 ![Ezen a képen látható az ételrendelő lap drótvázterve](mockup.jpg "Ételrendelő lap")
 
 
+#### Könyvtárszerkezet
+![Ezen a képen látható a projekt mappa struktúrája ](folder_structure_with_files.png "Könyvtárszerkezet")
 
 ---
 
