@@ -34,4 +34,5 @@ public class CustomerDetailsService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(cust.getFullname(), cust.getPassword(), grantedAuthorities);
     }
+
 }
