@@ -29,11 +29,13 @@ A megrendelt ételek kiszállítását a futárok végzik.
 * POST /api/register - Regisztrációs végpont az új felhasználók részére
 * POST /api/login - Bejelentkező felület regisztrált felhasználók számára
 * GET/POST /api/menus - Itt lehet listázni a menüket/hozzáadni újat
-* GET/PATCH/DELETE /api/menu/{id} - Egy adott menü lekérdezése, módosítása, törlése
+* GET/PATCH/DELETE /api/menus/{id} - Egy adott menü lekérdezése, módosítása, törlése
 * GET/POST /api/orders - Itt lehet lekérdezni/leadni a rendeléseket (csak bejelentkezett felhasználóknak)
-* GET/PATCH/DELETE /api/order/{id} - Egy adott rendelés lekérdezése, módosítása, törlése
+* GET/PATCH/DELETE /api/orders/{id} - Egy adott rendelés lekérdezése, módosítása, törlése
 * GET /api/couriers - A futárok adatait itt lehet lekérdezni
-* GET/PATCH/DELETE /api/courier/{id} - Egy adott futár adatainak lekérdezése, módosítása, törlése
+* GET/PATCH/DELETE /api/couriers/{id} - Egy adott futár adatainak lekérdezése, módosítása, törlése
+* GET /api/customers - A vásárlók adatainak lekérdezése
+* GET/PATCH/DELETE /api/customers/{id} - Egy adott várásló adatainak lekérdezése
   
 #### Funkcionális követelmények
 * Regisztráció
@@ -59,7 +61,6 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 #### Szerepkörök
 * Vendég: Az oldal nem regisztrált látogatója. Megtekintheti az étlapot, valamint az étterem elérhetőségeit. Tud a menüben keresni és regisztrálni.
 * Bejelentkezett vendég: Regisztrált és bejelentkezett felhasználó, aki már rendeléseket is adhat le.
-* Futár
 
 #### Képernyőterv
 ![Ezen a képen látható az ételrendelő lap drótvázterve](mockup.jpg "Ételrendelő lap")
