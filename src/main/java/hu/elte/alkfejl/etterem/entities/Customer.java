@@ -2,8 +2,11 @@ package hu.elte.alkfejl.etterem.entities;
 
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Entity
@@ -11,6 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "Customers")
 public class Customer implements Serializable  {
     
     @Id
@@ -40,6 +44,10 @@ public class Customer implements Serializable  {
     @Column
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
     
     public enum Role {
         ROLE_GUEST, ROLE_CUSTOMER

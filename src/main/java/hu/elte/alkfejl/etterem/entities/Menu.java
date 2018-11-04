@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "Menus")
 public class Menu implements Serializable {
 
     @Id
@@ -22,6 +23,7 @@ public class Menu implements Serializable {
     private Integer id;
 
     @ManyToMany
+    @JoinTable
     private List<Order> orders;
     
     @Column

@@ -1,6 +1,8 @@
 package hu.elte.alkfejl.etterem.entities;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,17 +17,19 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Table(name = "Orders")
 public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany
-    @JoinTable
+    @ManyToMany(mappedBy = "orders")
+    @JsonIgnore
     private List<Menu> menus;
 
     @ManyToOne
+    @JoinColumn
     private Customer customer;
 
     @ManyToOne
