@@ -27,6 +27,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
+    //This adds default admin user authentication
+    @Override
+    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+            .withUser("Admin").password(passwordEncoder().encode("admin")).roles("ROLE_ADMIN");
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -34,8 +41,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/h2/**", "/api/users/register", "/api/menus").permitAll()
+                .antMatchers("/h2/**", "/api/register", "/api/menus", "/api/login").permitAll()
                 .anyRequest().authenticated()
+            .and()
+                .formLogin()
+                .loginPage("/login.html")
+                .loginProcessingUrl("/api/login")
+                // this will be modified after the frontend is added
+                .defaultSuccessUrl("/homepage.html", true)
+                //.failureUrl("/login.html?error=true")
             .and()
                 .httpBasic()
             .and()

@@ -50,6 +50,6 @@ public class Customer implements Serializable  {
     private List<Order> orders;
     
     public enum Role {
-        ROLE_GUEST, ROLE_CUSTOMER
+        ROLE_ADMIN, ROLE_GUEST, ROLE_CUSTOMER
     }
 }

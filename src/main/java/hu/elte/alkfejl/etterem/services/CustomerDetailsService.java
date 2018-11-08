@@ -19,12 +19,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomerDetailsService implements UserDetailsService {
 
     @Autowired
-    private CustomerRepository userRepo;
+    private CustomerRepository customerRepo;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Customer> oUser = userRepo.findByFullname(username);
+        Optional<Customer> oUser = customerRepo.findByFullname(username);
         if (!oUser.isPresent()) {
             throw new UsernameNotFoundException(username);
         }
