@@ -11,6 +11,8 @@ import { BucketComponent } from './bucket/bucket.component';
 import { OrderComponent } from './order/order.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MatButtonModule, MatToolbarModule } from "@angular/material";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
