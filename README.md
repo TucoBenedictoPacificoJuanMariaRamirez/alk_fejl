@@ -41,14 +41,13 @@ A megrendelt ételek kiszállítását a futárok végzik.
 * Regisztráció
 * Bejelentkezés
 * Étlap megtekintése
-* Keresés
 * Az étterem elérhetőségeinek megtekintése
 * Bejelentkezett felhasználóknak
  	* Étel kosárba helyezése
  	* Étel törlése a kosárból
+ 	* Rendelés leadása
+ 	* Korábbi rendelések megtekintése
  	* Adatok módosítása
- 	* Panasz írása/Értékelés
- 	* A rendelést szállító futár adatainak megtekintése
 
 #### Nem funkcionális követelmények
 * Felhasználóbarát: Megfelelően elhatárolt funkciók. Világos, látható színekkel írt szövegek. Ésszerű elrendezés.
@@ -96,6 +95,21 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 
 #### Szekvenciadiagram
 ![Ezen a képen 1 db végpont működésének leírása látható, mi történik, milyen lépések követik egymást](sequence.png "Szekvenciadiagram")
+
+
+#### Felhasználói használati esetek
+Vendég felhasználó esetén:
+
+![A vendég felhasználó használati eset diagramja](vendeg_use_case.png "Vendég felhasználó használati eset diagramja")
+
+Regisztrált felhasználó esetén:
+
+![Regisztrált felhasználó használati eset diagramja](customer_use_case.png "Regisztrált felhasználó használati eset diagramja")
+
+Az admin felhasználó:
+
+![Az admin használati eset diagramja](admin_use_case.png "Az admin használati eset diagramja")
+
 
 ---
 
