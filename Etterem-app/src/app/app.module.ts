@@ -14,10 +14,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule,
+  MatInputModule, MatTableDataSource, MatTableModule,
   MatToolbarModule
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     BucketComponent,
     OrderComponent,
     ContactComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     NoopAnimationsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

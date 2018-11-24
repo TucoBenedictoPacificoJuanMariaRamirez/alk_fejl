@@ -1,0 +1,33 @@
+<p>
+  Ezt a lapot, majd csak az admin látja így, csak egyelőre backend híján itt van :)
+</p>
+
+<h2>Az alábbi rendelések vannak rögzítve a rendszerben:</h2>
+
+<table mat-table [dataSource]="orders" class="mat-elevation-z1">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let order"> {{order.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="customer">
+    <th mat-header-cell *matHeaderCellDef> Vásárló </th>
+    <td mat-cell *matCellDef="let order"> {{order.customer.fullname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="courier">
+    <th mat-header-cell *matHeaderCellDef> Futár </th>
+    <td mat-cell *matCellDef="let order"> {{order.courier.name}} </td>
+  </ng-container>
+
+  <!--<ng-container matColumnDef="machine">-->
+  <!--<th mat-header-cell *matHeaderCellDef> Mosógép </th>-->
+  <!--<td mat-cell *matCellDef="let reservation">-->
+  <!--{{ reservation.washingMachine.building }}{{ reservation.washingMachine.floor }}-->
+  <!--{{ reservation.washingMachine.number }}. gép-->
+  <!--</td>-->
+  <!--</ng-container>-->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

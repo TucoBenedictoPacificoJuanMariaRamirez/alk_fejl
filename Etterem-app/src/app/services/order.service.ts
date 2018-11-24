@@ -11,13 +11,9 @@ export class OrderService {
 
   private orders: Order[];
 
-  private courierService: CourierService;
-
-  private customerService: CustomerService;
-
-  private menuService: MenuService;
-
-  constructor() {
+  constructor(private courierService: CourierService,
+  private customerService: CustomerService,
+  private menuService: MenuService) {
     this.orders = [
       {
         id: 1,
@@ -29,7 +25,7 @@ export class OrderService {
         courier: this.courierService.getCouriers(1)
       } as Order,
       {
-        id: 1,
+        id: 2,
         menus: [
           this.menuService.getMenus(2),
           this.menuService.getMenus(3),
