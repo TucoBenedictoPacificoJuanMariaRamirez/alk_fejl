@@ -25,7 +25,7 @@ export class CourierService {
     ];
   }
 
-  public getCouriers(): Courier[] {
-    return this.couriers;
+  public getCouriers(id: Number): Courier {
+    return this.couriers.find((courier: Courier) => courier.id === id);
   }
 }

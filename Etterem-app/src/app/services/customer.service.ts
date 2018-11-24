@@ -38,7 +38,8 @@ export class CustomerService {
       } as Customer,
     ];
   }
-  public getCustomers(): Customer[] {
-    return this.customers;
+
+  public getCustomers(id: Number): Customer {
+    return this.customers.find((customer: Customer) => customer.id === id);
   }
 }

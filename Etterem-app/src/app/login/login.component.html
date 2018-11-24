@@ -1,7 +1,11 @@
 <form action="/">
-  <p>Felhasználónév</p>
-  <input type="text">
-  <p>Jelszó</p>
-  <input type="password">
-  <input type="submit">
+  <mat-form-field class="loginForm">
+    <input matInput type="text" class="formInput" placeholder="Felhasználónév">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="loginForm">
+    <input matInput type="password" class="formInput" placeholder="Jelszó">
+  </mat-form-field>
+  <br>
+  <input type="submit" class="formSubmit" value="Bejelentkezés">
 </form>
