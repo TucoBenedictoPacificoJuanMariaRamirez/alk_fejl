@@ -18,8 +18,8 @@ export class OrderService {
       {
         id: 1,
         menus: [
-          this.menuService.getMenus(1),
-          this.menuService.getMenus(4)
+          this.menuService.getMenu(1),
+          this.menuService.getMenu(4)
         ],
         customer: this.customerService.getCustomers(2),
         courier: this.courierService.getCouriers(1),
@@ -30,9 +30,9 @@ export class OrderService {
       {
         id: 2,
         menus: [
-          this.menuService.getMenus(2),
-          this.menuService.getMenus(3),
-          this.menuService.getMenus(4)
+          this.menuService.getMenu(2),
+          this.menuService.getMenu(3),
+          this.menuService.getMenu(4)
         ],
         customer: this.customerService.getCustomers(3),
         courier: this.courierService.getCouriers(2),

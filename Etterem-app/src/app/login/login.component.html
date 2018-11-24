@@ -1,3 +1,4 @@
+<h2>Bejelentkezés</h2>
 <form action="/">
   <mat-form-field class="loginForm">
     <input matInput type="text" class="formInput" placeholder="Felhasználónév">
@@ -6,6 +7,10 @@
   <mat-form-field class="loginForm">
     <input matInput type="password" class="formInput" placeholder="Jelszó">
   </mat-form-field>
-  <br>
-  <input type="submit" class="formSubmit" value="Bejelentkezés">
 </form>
+<mat-card-actions>
+  <button mat-flat-button color="primary" type="submit" class="formSubmit">
+    Bejelentkezés
+      <mat-icon>person</mat-icon>
+  </button>
+</mat-card-actions>

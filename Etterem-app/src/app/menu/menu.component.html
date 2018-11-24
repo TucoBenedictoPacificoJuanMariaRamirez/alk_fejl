@@ -1,3 +1,28 @@
-<p>
-  menu works!
-</p>
+<h2>Menü</h2>
+
+<mat-grid-list cols="2" rowHeight="300">
+  <mat-grid-tile *ngFor="let menu of _menus">
+    <mat-card>
+      <mat-card-title class="mat_card_component">
+        {{ menu.name }}
+      </mat-card-title>
+      <mat-card-subtitle class="mat_card_component">
+         {{ menu.details }} 
+      </mat-card-subtitle>
+      <mat-card-content class="mat_card_component">
+        {{ menu.price }} Ft
+      </mat-card-content>
+      <mat-card-subtitle class="mat_card_component" align="right">
+        <img mat-card-image src="{{ menu.imgUrl }}" alt="{{ menu.name }}">
+      </mat-card-subtitle>
+      <mat-card-actions align="right">
+      <button mat-flat-button color="primary" disabled="false"
+                routerLink="order/{{ menu.id }}">
+          Kosárba
+          <mat-icon>shopping_cart</mat-icon>
+      </button>
+
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

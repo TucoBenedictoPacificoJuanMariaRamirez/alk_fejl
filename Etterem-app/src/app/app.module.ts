@@ -15,10 +15,28 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule, MatTableDataSource, MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+
+  MatExpansionModule,
+  MatIconModule,
+  MatCardModule,
+  MatGridListModule,
+  MatListModule,
+  MatSelectModule
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './orders/orders.component';
+
+
+
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
@@ -42,6 +60,20 @@ import { OrdersComponent } from './orders/orders.component';
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
+
+    MatExpansionModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatListModule,
+    MatSelectModule,
+
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

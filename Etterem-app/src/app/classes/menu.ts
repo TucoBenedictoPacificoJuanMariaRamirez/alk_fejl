@@ -3,4 +3,5 @@ export class Menu {
     public name: String;
     public details: String;
     public price: Number;
+    public imgUrl: String;
 }

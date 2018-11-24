@@ -1,1 +1,6 @@
-/* Enter your custom styles here */
+mat-expansion-panel{
+    width: 12rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

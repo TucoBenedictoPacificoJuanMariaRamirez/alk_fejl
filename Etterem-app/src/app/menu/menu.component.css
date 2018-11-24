@@ -1,1 +1,14 @@
-/* Enter your custom styles here */
+mat-card {
+    box-sizing: border-box;
+    width: calc(100%-34px);
+}
+.mat_card_component {
+    box-sizing: border-box;
+    width: 25rem;
+}
+mat-card img{
+    object-fit: cover;
+    width: 6rem; 
+    height: 6rem;
+    margin: 0rem;
+  }

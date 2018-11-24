@@ -10,4 +10,5 @@ export class Order {
     public dateOfOrder: Date;
     public dateOfCompletion: Date;
     public cost: Number;
+   // public quantity: Number;
 }

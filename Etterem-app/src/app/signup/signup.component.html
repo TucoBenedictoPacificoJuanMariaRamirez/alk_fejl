@@ -1,23 +1,51 @@
+<h2>Regisztáció</h2>
 <form action="/">
   <mat-form-field class="loginForm">
-    <input matInput type="text" class="formInput" placeholder="Név">
+    <input matInput placeholder="Név" class="formInput" [formControl]="nameFormControl"
+    [errorStateMatcher]="matcher">
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+    Az név megadása <strong>kötelező</strong>!
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
-    <input matInput type="text" class="formInput" placeholder="Email cím">
+    <input matInput placeholder="Email" class="formInput" [formControl]="emailFormControl"
+        [errorStateMatcher]="matcher">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+    Helytelen e-mail cím formátum!
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+    Az e-mail cím megadása <strong>kötelező</strong>!
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
-    <input matInput type="text" class="formInput" placeholder="Cím">
+    <input matInput placeholder="Cím" class="formInput" [formControl]="addressFormControl"
+    [errorStateMatcher]="matcher">
+    <mat-error *ngIf="addressFormControl.hasError('required')">
+    Az cím megadása <strong>kötelező</strong>!
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
-    <input matInput type="text" class="formInput" placeholder="Telefonszám">
+    <input matInput placeholder="Telefonszám" class="formInput" [formControl]="phoneFormControl"
+    [errorStateMatcher]="matcher">
+    <mat-error *ngIf="phoneFormControl.hasError('required')">
+    Az telefonszám megadása <strong>kötelező</strong>!
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
-    <input matInput type="password" class="formInput" placeholder="Jelszó">
+    <input matInput placeholder="Jelszó" class="formInput" [formControl]="passwordFormControl"
+    [errorStateMatcher]="matcher">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
+    Az jelszó megadása <strong>kötelező</strong>!
+    </mat-error>
   </mat-form-field>
-  <br>
-  <input type="submit" class="formSubmit" value="Regisztráció">
 </form>
+<mat-card-actions>
+  <button mat-flat-button color="primary" type="submit" class="formSubmit">
+    Regisztráció
+      <mat-icon>person_add</mat-icon>
+  </button>
+</mat-card-actions>
