@@ -9,7 +9,7 @@ import {OrderService} from '../services/order.service';
 })
 export class OrdersComponent implements OnInit {
   private orders: Order[];
-  private displayedColumns = ['id', 'customer', 'courier']
+  private displayedColumns = ['id', 'customer', 'courier', 'date_of_order', 'date_of_completion', 'cost'];
 
   constructor(private orderService: OrderService) {  }
 

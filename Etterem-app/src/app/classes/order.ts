@@ -7,4 +7,7 @@ export class Order {
     public menus: Menu[];
     public customer: Customer;
     public courier: Courier;
+    public dateOfOrder: Date;
+    public dateOfCompletion: Date;
+    public cost: Number;
 }

@@ -22,7 +22,10 @@ export class OrderService {
           this.menuService.getMenus(4)
         ],
         customer: this.customerService.getCustomers(2),
-        courier: this.courierService.getCouriers(1)
+        courier: this.courierService.getCouriers(1),
+        dateOfOrder: new Date('2018-11-12T13:30'),
+        dateOfCompletion: new Date(''),
+        cost: 2000
       } as Order,
       {
         id: 2,
@@ -32,7 +35,10 @@ export class OrderService {
           this.menuService.getMenus(4)
         ],
         customer: this.customerService.getCustomers(3),
-        courier: this.courierService.getCouriers(2)
+        courier: this.courierService.getCouriers(2),
+        dateOfOrder: new Date('2018-10-22T10:00'),
+        dateOfCompletion: new Date('2018-10-22T12:10'),
+        cost: 2490
       } as Order
     ];
   }
