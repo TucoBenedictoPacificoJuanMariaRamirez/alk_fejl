@@ -90,8 +90,8 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 4. A projectkönyvtárban a függőségek telepítése
 
 #### Könyvtárszerkezet
-![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Könyvtárszerkezet")
-
+![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Backend Könyvtárszerkezet")
+![Ezen a képen látható a projekt mappa struktúrája](frontend_folder_structure.PNG "Frontend Könyvtárszerkezet")
 
 #### Szekvenciadiagram
 ![Ezen a képen 1 db végpont működésének leírása látható, mi történik, milyen lépések követik egymást](sequence.png "Szekvenciadiagram")
