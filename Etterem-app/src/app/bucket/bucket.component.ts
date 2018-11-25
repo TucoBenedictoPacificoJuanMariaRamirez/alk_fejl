@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from '../classes/menu';
 import { MenuService } from '../services/menu.service';
+import {BucketService} from '../services/bucket.service';
 @Component({
   selector: 'app-bucket',
   templateUrl: './bucket.component.html',
@@ -8,30 +9,46 @@ import { MenuService } from '../services/menu.service';
 })
 export class BucketComponent implements OnInit {
   private _menus: Menu[];
-  private selectedOptions: Menu[];
-  constructor(
-    private _menuService: MenuService
-  ) { }
+  private itemsToDelete: Number[];
+  private bucketService: BucketService;
 
-  ngOnInit() {
-    this._menus = this._menuService.getMenus();
-    this.selectedOptions = [];
+  constructor(
+    private _menuService: MenuService, private _bucketService: BucketService
+  ) {
+    this.bucketService = _bucketService;
+    this.itemsToDelete = [];
   }
 
-  public removeItems(event: Event): void {
-    console.log('belemegy');
-    const currentBucket = this;
-    this.selectedOptions.forEach(function(value) {
-      const index = currentBucket.selectedOptions.indexOf(value, 0);
-      if (index > -1) {
-        currentBucket.selectedOptions.splice(index, 1);
+  ngOnInit() {
+    this._menus = this.bucketService._selectedMenus;
+  }
+
+  public removeItems(): void {
+    console.log('forEach start');
+    this.itemsToDelete.forEach(i => {
+      console.log('Removing with ID: ' + i);
+      const index = this.bucketService._selectedMenus.findIndex(d => d.id === i);
+      if (i > -1) {
+        this.bucketService._selectedMenus.splice(index, 1);
+        this.itemsToDelete = [];
+        this.bucketService.countMenuType[i.toString()] = 0;
       }
-      console.log(value + 'deleted');
     });
   }
 
-  public updateSelected(event: Event, menu: Menu): void {
-    this.selectedOptions.push(menu);
+  public itemClicked(id: Number): void {
+    console.log(id);
+    if (this.itemsToDelete.find(i => i === id)) {
+      const index = this.itemsToDelete.findIndex(d => d === id);
+      this.itemsToDelete.splice(index, 1);
+      return;
+    }
+      this.itemsToDelete.push(id);
+  }
+
+  public deleteAll(): void {
+    this.bucketService.countMenuType = [0, 0, 0, 0, 0];
+    this.bucketService._selectedMenus = [];
   }
 
 }
