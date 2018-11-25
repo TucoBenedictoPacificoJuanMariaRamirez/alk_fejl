@@ -110,6 +110,7 @@ Az admin felhasználó:
 	* JPA
 	* lombok
 	* Web services
+	* Web security
 	* DevTools
 	* Web	
 		
