@@ -89,8 +89,9 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 3. Project klónozása (vagy letöltése) lokális gépre: git clone https://github.com/TucoBenedictoPacificoJuanMariaRamirez/alk_fejl.git
 4. A projectkönyvtárban a függőségek telepítése
 
-#### Könyvtárszerkezet
+#### Backend könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Backend Könyvtárszerkezet")
+#### Frontend könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](frontend_folderstructure.png "Frontend Könyvtárszerkezet")
 
 #### Szekvenciadiagram
