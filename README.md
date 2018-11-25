@@ -104,7 +104,7 @@ Az admin felhasználó:
 	* Node.js Javascript környezet
 	* NetBeans IDE 8.2
 	* H2 adatbázis-kezelő rendszer	
-	* Andular keretrendszer használata(6.1.9)
+	* Angular keretrendszer használata(6.1.9)
 	* AJAX a szerverrel törénő kommunikációhoz	
 * **Importált J2EE csomagok:**
 	* JPA
