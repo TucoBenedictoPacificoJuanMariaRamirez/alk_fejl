@@ -91,7 +91,7 @@ Az alkalmazás megértéséhez nem szükségesek szakszavak vagy nem mindennapi 
 
 #### Könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](folder_structure_with_files.PNG "Backend Könyvtárszerkezet")
-![Ezen a képen látható a projekt mappa struktúrája](frontend_folder_structure.PNG "Frontend Könyvtárszerkezet")
+![Ezen a képen látható a projekt mappa struktúrája](frontend_folder_structure.png "Frontend Könyvtárszerkezet")
 
 #### Szekvenciadiagram
 ![Ezen a képen 1 db végpont működésének leírása látható, mi történik, milyen lépések követik egymást](sequence.png "Szekvenciadiagram")
