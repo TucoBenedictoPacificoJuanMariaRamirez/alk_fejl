@@ -1,15 +1,24 @@
 <h2>
   A kosaram tartalma
 </h2>
-<mat-selection-list>
-  <mat-list-option *ngFor="let menu of _menus">
+<mat-selection-list #menus (selectionChange)="updateSelected($event, menus.selectedOptions)">
+  <mat-list-option *ngFor='let menu of _menus'>
     <h3 matSubheader> x db {{ menu.name }} {{ menu.price }} Ft</h3>
     
   </mat-list-option>
 </mat-selection-list>
 
+<p>Selected options: {{ menus.selectedOptions.selected.length }}</p>
+
+<p>Selected:</p>
+<ul>
+    <li *ngFor="let menu of menus.selectedOptions.selected">
+        {{ menu.value }}
+    </li>
+</ul>
+
 <mat-card-actions align="right">
-  <button mat-flat-button color="primary" type="delete" class="formSubmit">
+  <button mat-flat-button color="primary" (click)="removeItems(event)" type="button" class="formSubmit">
       Törlés
       <mat-icon>delete</mat-icon>
   </button>
