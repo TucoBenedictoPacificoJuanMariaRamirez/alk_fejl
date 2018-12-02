@@ -20,14 +20,14 @@
     <td mat-cell *matCellDef="let order"> {{order.courier.name}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="date_of_order">
+  <ng-container matColumnDef="dateOfOrder">
     <th mat-header-cell *matHeaderCellDef> Rendelés leadása </th>
-    <td mat-cell *matCellDef="let order"> {{!order.date_of_order ? '' : order.date_of_order.toLocaleString()}} </td>
+    <td mat-cell *matCellDef="let order"> {{!order.dateOfOrder ? '' : order.dateOfOrder.toLocaleString()}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="date_of_completion">
+  <ng-container matColumnDef="dateOfCompletion">
     <th mat-header-cell *matHeaderCellDef> Rendelés teljesítése </th>
-    <td mat-cell *matCellDef="let order"> {{!order.date_of_completion ? '' : order.date_of_completion.toLocaleString()}} </td>
+    <td mat-cell *matCellDef="let order"> {{!order.dateOfCompletion ? '' : order.dateOfCompletion.toLocaleString()}} </td>
   </ng-container>
 
   <ng-container matColumnDef="cost">

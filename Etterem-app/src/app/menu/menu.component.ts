@@ -30,6 +30,6 @@ export class MenuComponent implements OnInit {
     }
 
     this.bucketService.countMenuType[id.toString()]++;
-    console.log('Adding with ID: ' + id);
+    console.log('Adding menu with ID: ' + id);
   }
 }

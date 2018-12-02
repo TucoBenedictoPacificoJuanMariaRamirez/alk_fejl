@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Menu } from '../classes/menu';
 import { MenuService } from '../services/menu.service';
 import {BucketService} from '../services/bucket.service';
+import {OrderService} from '../services/order.service';
+import {Order} from '../classes/order';
+import {CustomerService} from '../services/customer.service';
+import {CourierService} from '../services/courier.service';
 @Component({
   selector: 'app-bucket',
   templateUrl: './bucket.component.html',
@@ -11,11 +15,18 @@ export class BucketComponent implements OnInit {
   private _menus: Menu[];
   private itemsToDelete: Number[];
   private bucketService: BucketService;
+  private orderService: OrderService;
+  private customerService: CustomerService;
+  private courierService: CourierService;
 
   constructor(
-    private _menuService: MenuService, private _bucketService: BucketService
+    private _menuService: MenuService, private _bucketService: BucketService, private _orderService: OrderService,
+    private _customerService: CustomerService, private _courierService: CourierService
   ) {
     this.bucketService = _bucketService;
+    this.orderService = _orderService;
+    this.customerService = _customerService;
+    this.courierService = _courierService;
     this.itemsToDelete = [];
   }
 
@@ -47,8 +58,20 @@ export class BucketComponent implements OnInit {
   }
 
   public deleteAll(): void {
+    // If there is something in the bucket, a new Order is created
+    if (this.bucketService._selectedMenus) {
+      this.orderService.saveOrder({
+        id: 100,
+        menus: [],
+        customer: this.customerService.getCustomers()[0],
+        courier: this.courierService.getRandomCourier(),
+        dateOfOrder: new Date(),
+        dateOfCompletion: null,
+        cost: this.bucketService.getCostOfSelected()
+      } as Order);
+    }
+    // Delete bucket items
     this.bucketService.countMenuType = [0, 0, 0, 0, 0];
     this.bucketService._selectedMenus = [];
   }
-
 }

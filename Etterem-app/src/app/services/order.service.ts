@@ -3,6 +3,7 @@ import {Order} from '../classes/order';
 import {CourierService} from './courier.service';
 import {CustomerService} from './customer.service';
 import {MenuService} from './menu.service';
+import {Menu} from '../classes/menu';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,10 @@ export class OrderService {
           this.menuService.getMenu(1),
           this.menuService.getMenu(4)
         ],
-        customer: this.customerService.getCustomers(2),
-        courier: this.courierService.getCouriers(1),
+        customer: this.customerService.getCustomer(2),
+        courier: this.courierService.getCourier(1),
         dateOfOrder: new Date('2018-11-12T13:30'),
-        dateOfCompletion: new Date(''),
+        dateOfCompletion: null,
         cost: 2000
       } as Order,
       {
@@ -34,8 +35,8 @@ export class OrderService {
           this.menuService.getMenu(3),
           this.menuService.getMenu(4)
         ],
-        customer: this.customerService.getCustomers(3),
-        courier: this.courierService.getCouriers(2),
+        customer: this.customerService.getCustomer(3),
+        courier: this.courierService.getCourier(2),
         dateOfOrder: new Date('2018-10-22T10:00'),
         dateOfCompletion: new Date('2018-10-22T12:10'),
         cost: 2490
@@ -45,5 +46,13 @@ export class OrderService {
 
   public getOrders(): Order[] {
     return this.orders;
+  }
+
+  public getOrder(id: Number): Order {
+    return this.orders.find((order: Order) => order.id === id);
+  }
+
+  public saveOrder(order: Order): void {
+    this.orders.push(order);
   }
 }

@@ -17,4 +17,12 @@ export class BucketService {
     this._selectedMenus = [];
     this.countMenuType = [0, 0, 0, 0, 0];
   }
+
+  public getCostOfSelected(): Number {
+    let sum = 0;
+    for (let i = 0; i < this._selectedMenus.length; ++i) {
+      sum += +this._selectedMenus[i].price * +this.countMenuType[i + 1];
+    }
+    return sum;
+  }
 }

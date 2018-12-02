@@ -25,7 +25,15 @@ export class CourierService {
     ];
   }
 
-  public getCouriers(id: Number): Courier {
+  public getCouriers(): Courier[] {
+    return this.couriers;
+  }
+
+  public getCourier(id: Number): Courier {
     return this.couriers.find((courier: Courier) => courier.id === id);
+  }
+
+  public getRandomCourier(): Courier {
+    return this.couriers[Math.floor(Math.random() * this.couriers.length)];
   }
 }
