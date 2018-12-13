@@ -36,5 +36,4 @@ public class Order implements Serializable {
     @JoinColumn
     private Courier courier;
 
-
 }

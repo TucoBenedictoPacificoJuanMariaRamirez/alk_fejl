@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/login")
+//@RestController
+//@RequestMapping("/api/login")
 public class LoginController {
 
     @Autowired
@@ -29,13 +29,13 @@ public class LoginController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    AuthenticationManager authManager;
+    /*@Autowired
+    AuthenticationManager authManager;*/
 
     @Autowired
     SecurityContext securityContext;
 
-    @PostMapping("")
+    /*@PostMapping("")
     public ResponseEntity<Customer> post(@RequestBody Customer newCustomer) {
         Optional<Customer> customer = customerRepo.findByEmail(newCustomer.getEmail());
         // If the user exists, we log him/her in
@@ -49,6 +49,6 @@ public class LoginController {
 
         // Otherwise return with not found
         return ResponseEntity.notFound().build();
-    }
+    }*/
     
 }
