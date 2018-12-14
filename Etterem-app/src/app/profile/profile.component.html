@@ -1,0 +1,27 @@
+<h2>Adatok módosítása</h2>
+
+<form action="/">
+  <mat-form-field class="loginForm">
+    <input matInput placeholder="Név" class="formInput">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="loginForm">
+    <input matInput placeholder="Email" class="formInput">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="loginForm">
+    <input matInput placeholder="Cím" class="formInput">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="loginForm">
+    <input matInput placeholder="Telefonszám" class="formInput">
+  </mat-form-field>
+  <br>
+</form>
+
+<mat-card-actions>
+    <button mat-flat-button color="primary" (click)="modifyCustomer()" type="button" class="formSubmit">
+        Módosítás
+        <mat-icon>restore_page</mat-icon>
+    </button>
+</mat-card-actions>

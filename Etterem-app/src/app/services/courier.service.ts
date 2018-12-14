@@ -1,39 +1,33 @@
 import { Injectable } from '@angular/core';
 import {Courier} from '../classes/courier';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourierService {
+  private route: String = "couriers";
+  //private couriers: Courier[];
 
-  private couriers: Courier[];
-
-  constructor() {
-    this.couriers = [
-        {
-          id: 1,
-          name: 'Tamás',
-        } as Courier,
-        {
-          id: 2,
-          name: 'Béla'
-        } as Courier,
-        {
-          id: 3,
-          name: 'Vendel'
-        } as Courier
-    ];
+  constructor(
+    private httpService: HttpService
+  ) { }
+  
+  public getCouriers(): Promise<Courier[]> {
+    return this.httpService.get<Courier[]>(this.route);
   }
 
-  public getCouriers(): Courier[] {
-    return this.couriers;
+  public getCourier(id: Number): Promise<Courier> {
+    return this.httpService.get<Courier>(this.route + '/' + id );
   }
-
-  public getCourier(id: Number): Courier {
-    return this.couriers.find((courier: Courier) => courier.id === id);
+/*
+  public  deleteCourier(id: Number[]): Promise<Courier[]>{
+    return this.httpService.delete<Courier[]>(this.route);//???
   }
-
+*/
+/*
   public getRandomCourier(): Courier {
     return this.couriers[Math.floor(Math.random() * this.couriers.length)];
   }
+*/
 }

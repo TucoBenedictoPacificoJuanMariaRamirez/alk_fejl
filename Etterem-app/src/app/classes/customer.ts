@@ -1,3 +1,5 @@
+import {Order} from "./order";
+
 export class Customer {
     public id: Number;
     public email: String;
@@ -6,6 +8,7 @@ export class Customer {
     public address: String;
     public phone: String;
     public role: Roles;
+    public orders: Order[];
 }
 
 export enum Roles {

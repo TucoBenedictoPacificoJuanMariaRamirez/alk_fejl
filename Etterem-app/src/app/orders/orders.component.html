@@ -4,7 +4,7 @@
 
 <h2>Az alábbi rendelések vannak rögzítve a rendszerben:</h2>
 
-<table mat-table [dataSource]="orders" class="mat-elevation-z1">
+<table mat-table [dataSource]="_orders" class="mat-elevation-z1">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
     <td mat-cell *matCellDef="let order"> {{order.id}} </td>
@@ -34,15 +34,7 @@
     <th mat-header-cell *matHeaderCellDef> Rendelés összege </th>
     <td mat-cell *matCellDef="let order"> {{order.cost}} </td>
   </ng-container>
-
-  <!--<ng-container matColumnDef="machine">-->
-  <!--<th mat-header-cell *matHeaderCellDef> Mosógép </th>-->
-  <!--<td mat-cell *matCellDef="let reservation">-->
-  <!--{{ reservation.washingMachine.building }}{{ reservation.washingMachine.floor }}-->
-  <!--{{ reservation.washingMachine.number }}. gép-->
-  <!--</td>-->
-  <!--</ng-container>-->
-
+  
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

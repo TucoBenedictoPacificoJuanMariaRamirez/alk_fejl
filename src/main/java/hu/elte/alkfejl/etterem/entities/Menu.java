@@ -38,6 +38,10 @@ public class Menu implements Serializable {
     @Column
     @NotNull
     private Integer price;
+    
+    @Column
+    @NotNull
+    private String imgUrl;
 
     public void setId(Integer id) {
         this.id = id;

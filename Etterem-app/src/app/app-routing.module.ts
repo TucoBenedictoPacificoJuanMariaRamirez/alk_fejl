@@ -7,6 +7,10 @@ import {BucketComponent} from './bucket/bucket.component';
 import {OrdersComponent} from './orders/orders.component';
 import {ContactComponent} from "./contact/contact.component";
 
+import {CouriersComponent} from "./couriers/couriers.component";
+import {OrderComponent} from './order/order.component';
+import {ProfileComponent} from "./profile/profile.component";
+
 const routes: Routes = [
     {path: '', component: MenuComponent},
     {path: 'login', component: LoginComponent},
@@ -15,6 +19,11 @@ const routes: Routes = [
     {path: 'orders', component: OrdersComponent},
     {path: "contact", component: ContactComponent},
     {path: "orders", component: OrdersComponent},
+
+    {path: "couriers", component: CouriersComponent},
+    {path: "order", component: OrderComponent},
+    {path: "profile", component: ProfileComponent},
+    
 ];
 
 @NgModule({

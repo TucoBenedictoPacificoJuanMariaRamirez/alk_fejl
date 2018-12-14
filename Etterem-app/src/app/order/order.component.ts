@@ -9,7 +9,7 @@ export class OrderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
 }

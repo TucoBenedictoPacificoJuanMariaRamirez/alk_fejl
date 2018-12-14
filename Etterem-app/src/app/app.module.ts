@@ -28,12 +28,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './orders/orders.component';
 
 
-
+import { HttpClient } from 'selenium-webdriver/http';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { CouriersComponent } from './couriers/couriers.component';
 
 
 
@@ -49,7 +51,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OrderComponent,
     ContactComponent,
     NavbarComponent,
-    OrdersComponent
+    OrdersComponent,
+    ProfileComponent,
+    CouriersComponent
   ],
   imports: [
     BrowserModule,

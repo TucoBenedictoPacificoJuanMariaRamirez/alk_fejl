@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Customer, Roles} from '../classes/customer';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-
+  private route: string = 'customers';
   private customers: Customer[];
-  constructor() {
+  constructor(
+    private httpService: HttpService
+  ) {
+    /*
     this.customers = [
       {
         id: 1,
@@ -37,13 +41,17 @@ export class CustomerService {
         role: Roles.ROLE_CUSTOMER
       } as Customer,
     ];
+    */
+  }
+  
+  public getCustomer(id: Number): Promise<Customer> {
+    //return this.customers.find((customer: Customer) => customer.id === id);
+    return this.httpService.get<Customer>(this.route + '/' + id);
   }
 
-  public getCustomer(id: Number): Customer {
-    return this.customers.find((customer: Customer) => customer.id === id);
+  public getCustomers(): Promise<Customer[]> {
+    //return this.customers;
+    return this.httpService.get<Customer[]>(this.route);
   }
-
-  public getCustomers(): Customer[] {
-    return this.customers;
-  }
+  
 }

@@ -7,15 +7,19 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepo;
+    
+    //@Autowired
+    //private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("")
     public ResponseEntity<Iterable<Customer>> getAll() {

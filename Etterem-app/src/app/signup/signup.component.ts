@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   constructor() { }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
 }

@@ -13,27 +13,29 @@ import {CourierService} from '../services/courier.service';
 })
 export class BucketComponent implements OnInit {
   private _menus: Menu[];
-  private itemsToDelete: Number[];
-  private bucketService: BucketService;
-  private orderService: OrderService;
-  private customerService: CustomerService;
-  private courierService: CourierService;
+  //private itemsToDelete: Number[];
+  //private bucketService: BucketService;
+  //private orderService: OrderService;
+  //private customerService: CustomerService;
+  //private courierService: CourierService;
 
   constructor(
-    private _menuService: MenuService, private _bucketService: BucketService, private _orderService: OrderService,
-    private _customerService: CustomerService, private _courierService: CourierService
+    private _bucketService: BucketService
+    //private _menuService: MenuService, private _bucketService: BucketService, private _orderService: OrderService,
+    //private _customerService: CustomerService, private _courierService: CourierService
   ) {
-    this.bucketService = _bucketService;
-    this.orderService = _orderService;
-    this.customerService = _customerService;
-    this.courierService = _courierService;
-    this.itemsToDelete = [];
+    //this.bucketService = _bucketService;
+    //this.orderService = _orderService;
+    //this.customerService = _customerService;
+    //this.courierService = _courierService;
+    //this.itemsToDelete = [];
   }
 
-  ngOnInit() {
-    this._menus = this.bucketService._selectedMenus;
+  async ngOnInit() {
+    //this._menus = this.bucketService._selectedMenus;
+    this._menus = await this._bucketService.getMenus();
   }
-
+  /*
   public removeItems(): void {
     console.log('forEach start');
     this.itemsToDelete.forEach(i => {
@@ -74,4 +76,5 @@ export class BucketComponent implements OnInit {
     this.bucketService.countMenuType = [0, 0, 0, 0, 0];
     this.bucketService._selectedMenus = [];
   }
+  */
 }

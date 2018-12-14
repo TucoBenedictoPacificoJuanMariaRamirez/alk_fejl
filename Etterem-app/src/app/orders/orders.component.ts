@@ -8,13 +8,16 @@ import {OrderService} from '../services/order.service';
   styleUrls: ['../orders/orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  private orders: Order[];
+  private _orders: Order[];
   private displayedColumns = ['id', 'customer', 'courier', 'dateOfOrder', 'dateOfCompletion', 'cost'];
 
-  constructor(private orderService: OrderService) {  }
+  constructor(
+    private _orderService: OrderService
+    ) {  }
 
-  ngOnInit() {
-    this.orders = this.orderService.getOrders();
+  async ngOnInit() {
+    //this.orders = this.orderService.getOrders();
+    this._orders = await this._orderService.getOrders();
   }
 
 }

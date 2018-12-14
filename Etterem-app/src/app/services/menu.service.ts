@@ -1,50 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Menu} from '../classes/menu';
-
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
+  private route: string = 'menus';
 
-  private menus: Menu[];
-  constructor() {
-    this.menus = [
-      {
-        id: 1,
-        name: 'Csirkemell rizs',
-        details: '500g, igazi csirkéből',
-        price: 900,
-        imgUrl: '../assets/img/food.png'
-      } as Menu,
-      {
-        id: 2,
-        name: 'Tökfőzelék',
-        details: '',
-        price: 650,
-        imgUrl: '../assets/img/food.png'
-      } as Menu,
-      {
-        id: 3,
-        name: 'Vörösboros marhapörkölt, kagylótésztával',
-        details: 'kenyér jár mellé',
-        price: 1200,
-        imgUrl: '../assets/img/food.png'
-      } as Menu,
-      {
-        id: 4,
-        name: 'Húslevel gazdagon, borsófőzelék',
-        details: 'Laci bácsi kedvence',
-        price: 950,
-        imgUrl:'../assets/img/food.png'
-      } as Menu
-    ];
-  }
-  public getMenus(): Menu[] {
-    return this.menus;
+  //private menus: Menu[];
+  constructor(
+    private httpService: HttpService
+  ) { }
+  public getMenus(): Promise<Menu[]> {
+    //return this.menus;
+    return this.httpService.get<Menu[]>(this.route);
+    //return this.httpService.get<Menu[]>(this.route);
+    
   }
 
-  public getMenu(id: Number): Menu {
-    return this.menus.find((menu: Menu) => menu.id === id);
+  public getMenu(id: Number): Promise<Menu> {
+    //return this.menus.find((menu: Menu) => menu.id === id);
+    return this.httpService.get<Menu>(this.route + '/'+ id);
   }
 }

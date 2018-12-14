@@ -38,24 +38,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors()
-            .and()
+                    .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/h2/**", "/api/register", "/api/menus", "/api/login").permitAll()
-                .anyRequest().authenticated()
-            .and()
-                .formLogin()
-                .loginPage("/login.html")
-                .loginProcessingUrl("/api/login")
+                    //.antMatchers("/h2/**", "/api/register", "/api/menus", "/api/login").permitAll()
+                    .antMatchers("/h2/**", "/api/register").permitAll()
+                
+                    .anyRequest().authenticated()
+                    .and()
+                //.formLogin()
+                //.loginPage("/login.html")
+                //.loginProcessingUrl("/api/login")
                 // this will be modified after the frontend is added
-                .defaultSuccessUrl("/homepage.html", true)
+                //.defaultSuccessUrl("/homepage.html", true)
                 //.failureUrl("/login.html?error=true")
-            .and()
+                    //.and()
                 .httpBasic()
-            .and()
+                    .and()
                 .headers()
-                .frameOptions().disable()
-            .and()
+                    .frameOptions().disable()
+                    .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

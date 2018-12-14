@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -35,5 +37,16 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn
     private Courier courier;
+    
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfOrder;
+    
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfCompletion;
+    
+    @Column
+    private Integer cost;
 
 }
