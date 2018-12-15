@@ -53,5 +53,9 @@ export class CustomerService {
     //return this.customers;
     return this.httpService.get<Customer[]>(this.route);
   }
+
+  public modifyCustomer(oldC: Customer, newC:Customer):Promise<Customer>{
+    return this.httpService.patch<Customer>(this.route,newC);
+  }
   
 }
