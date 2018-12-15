@@ -28,6 +28,13 @@
       <h3 matSubheader> {{ courier.id }} {{ courier.name }}</h3>
     </mat-list-option>
   </mat-selection-list>
+
+  <form class="example-form">
+    <mat-form-field  class="formInput">
+      <input matInput placeholder="Új futár neve" id="name" class="formInput">
+    </mat-form-field>
+  
+  </form>
   
 
 <mat-card-actions align="right">
@@ -35,7 +42,7 @@
         Hozzáadás
         <mat-icon>group_add</mat-icon>
     </button>
-  <button mat-raised-button color="primary" (click)="deleteCourier()" type="button" class="formSubmit">
+  <button mat-flat-button color="primary" (click)="deleteCourier()" type="button" class="formSubmit">
       Törlés
       <mat-icon>delete</mat-icon>
   </button>

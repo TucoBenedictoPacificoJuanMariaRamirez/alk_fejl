@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject} from '@angular/core';
 import {Courier} from '../classes/courier';
 import {CourierService} from '../services/courier.service';
-//import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 
 @Component({
   selector: 'app-couriers',
@@ -15,8 +15,9 @@ export class CouriersComponent implements OnInit {
   private couriersToDelete: Number[];
 
   constructor(
-    private _courierService: CourierService,
-    //public dialog: MatDialog
+
+    private _courierService: CourierService
+
   ) { 
     this.couriersToDelete = [];
   }
@@ -27,33 +28,26 @@ export class CouriersComponent implements OnInit {
 
   
   public courierSelect(id:Number){
-    /*
+    
     if (this.couriersToDelete.find(i => i === id)) {
       const index = this.couriersToDelete.findIndex(d => d === id);
       this.couriersToDelete.splice(index, 1);
       return;
     }
-      this.couriersToDelete.push(id);
-      console.log(this.couriersToDelete);
-      */
+      this.couriersToDelete.push(id);      
   }
-  public addCourier(){
-    /*
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
-    });
+  public addCourier(): void{
+    var name = document.getElementById("name").value;
+    this._courierService.addCourier(name);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
-    });
-  }
-  */
   }
 
   public deleteCourier(){
-    //this._courierService.deleteCourier(this.couriersToDelete);
+    this._courierService.deleteCourier(this.couriersToDelete);
+    this.couriersToDelete = [];
+
+    //this._couriers = await this._courierService.getCouriers();
+    //this
   }
 
 

@@ -37,9 +37,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import { CouriersComponent } from './couriers/couriers.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +74,7 @@ import { CouriersComponent } from './couriers/couriers.component';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

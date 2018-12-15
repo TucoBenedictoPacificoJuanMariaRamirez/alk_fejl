@@ -6,13 +6,16 @@ import {OrderService} from '../services/order.service';
 import {Order} from '../classes/order';
 import {CustomerService} from '../services/customer.service';
 import {CourierService} from '../services/courier.service';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-bucket',
   templateUrl: './bucket.component.html',
   styleUrls: ['./bucket.component.css']
 })
 export class BucketComponent implements OnInit {
-  private _menus: Menu[];
+  private _order: Order;
+  //private _menus: Menu[];
   //private itemsToDelete: Number[];
   //private bucketService: BucketService;
   //private orderService: OrderService;
@@ -20,6 +23,8 @@ export class BucketComponent implements OnInit {
   //private courierService: CourierService;
 
   constructor(
+    private route: ActivatedRoute,
+    private _orderService: OrderService,
     private _bucketService: BucketService
     //private _menuService: MenuService, private _bucketService: BucketService, private _orderService: OrderService,
     //private _customerService: CustomerService, private _courierService: CourierService
@@ -32,8 +37,10 @@ export class BucketComponent implements OnInit {
   }
 
   async ngOnInit() {
+    const id: number = parseInt(this.route.snapshot.paramMap.get('id'));
+    this._order = await this._orderService.getOrder(id);
     //this._menus = this.bucketService._selectedMenus;
-    this._menus = await this._bucketService.getMenus();
+    //this._menus = await this._bucketService.getMenus();
   }
   /*
   public removeItems(): void {
