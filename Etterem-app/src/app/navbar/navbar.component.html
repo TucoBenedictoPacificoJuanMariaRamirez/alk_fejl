@@ -3,10 +3,10 @@
   <button mat-button routerLink="">Menük</button>
   <button mat-button routerLink="login">Bejelentkezés</button>
   <button mat-button routerLink="signup">Regisztráció</button>
-  <button mat-button routerLink="bucket">Kosár</button>
-  <button mat-button routerLink="orders">Rendelések</button>
+  <button mat-button *ngIf="authService.isLoggedIn" routerLink="bucket">Kosár</button>
+  <button mat-button *ngIf="authService.isLoggedIn && authService.customer.role=='ROLE_ADMIN'" routerLink="orders">Rendelések</button>
 
-  <button mat-button routerLink="couriers">Futárok</button>
-  <button mat-button routerLink="order">Saját Rendelések</button>
-  <button mat-button routerLink="profile">Adatok módosítása</button>
+  <button mat-button *ngIf="authService.isLoggedIn && authService.customer.role=='ROLE_ADMIN'" routerLink="couriers">Futárok</button>
+  <button mat-button *ngIf="authService.isLoggedIn" routerLink="order">Saját Rendelések</button>
+  <button mat-button *ngIf="authService.isLoggedIn" routerLink="profile">Adatok módosítása</button>
 </mat-toolbar>

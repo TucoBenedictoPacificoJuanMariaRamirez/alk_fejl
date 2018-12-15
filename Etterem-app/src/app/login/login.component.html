@@ -1,16 +1,20 @@
 <h2>Bejelentkezés</h2>
-<form action="/">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="loginForm">
-    <input matInput type="text" class="formInput" placeholder="Felhasználónév">
+    <input matInput placeholder="Email cím" type="text" formControlName="email" required>
+    <mat-error *ngIf="loginForm.get('email').invalid">Email is required</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
-    <input matInput type="password" class="formInput" placeholder="Jelszó">
+    <input matInput placeholder="Jelszó" type="password" formControlName="password" required>
+    <mat-error *ngIf="loginForm.get('password').invalid">Password is required</mat-error>
   </mat-form-field>
-</form>
-<mat-card-actions>
-  <button mat-flat-button color="primary" type="submit" class="formSubmit">
+  <button mat-flat-button color="primary" type="submit" name="submit">
     Bejelentkezés
-      <mat-icon>person</mat-icon>
+    <mat-icon>person</mat-icon>
   </button>
-</mat-card-actions>
+
+  <div>
+    {{message}}
+  </div>
+</form>

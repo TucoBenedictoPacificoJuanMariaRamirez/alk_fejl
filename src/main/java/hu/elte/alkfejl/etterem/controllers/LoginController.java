@@ -12,43 +12,29 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
-//@RestController
-//@RequestMapping("/api/login")
+@CrossOrigin
+@RestController
+@RequestMapping("/api/login")
 public class LoginController {
 
     @Autowired
     private CustomerRepository customerRepo;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    /*@Autowired
-    AuthenticationManager authManager;*/
-
-    @Autowired
-    SecurityContext securityContext;
-
-    /*@PostMapping("")
-    public ResponseEntity<Customer> post(@RequestBody Customer newCustomer) {
-        Optional<Customer> customer = customerRepo.findByEmail(newCustomer.getEmail());
+    @PostMapping("")
+    public ResponseEntity<Customer> post(@RequestBody String email) {
+        Optional<Customer> customer = customerRepo.findByEmail(email);
         // If the user exists, we log him/her in
         if(customer.isPresent()) {
-            UsernamePasswordAuthenticationToken authReq = new UsernamePasswordAuthenticationToken(newCustomer.getFullname(), newCustomer.getPassword());
-            Authentication auth = authManager.authenticate(authReq);
-            SecurityContext sc = SecurityContextHolder.getContext();
-            securityContext.setAuthentication(auth);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(customer.get());
         }
-
         // Otherwise return with not found
-        return ResponseEntity.notFound().build();
-    }*/
+        return ResponseEntity.status(401).build();
+    }
     
 }

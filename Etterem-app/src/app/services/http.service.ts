@@ -18,7 +18,7 @@ export class HttpService {
   };
 */
   private options = {
-    headers: new HttpHeaders({ 
+    headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Basic YWRtaW46YWRtaW4=', // admin/password
     })
@@ -54,5 +54,4 @@ export class HttpService {
     return this.httpClient.delete(this.URL + route, this.options)
       .toPromise() as Promise<T>;
   }
-  
 }
