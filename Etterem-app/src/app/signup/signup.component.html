@@ -2,40 +2,40 @@
 <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="loginForm">
     <input matInput placeholder="Név" formControlName="fullname" required>
-    <!--<mat-error *ngIf="nameFormControl.hasError('required')">
+    <mat-error *ngIf="nameFormControl.hasError('required')">
     Az név megadása <strong>kötelező</strong>!
-    </mat-error>-->
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
     <input matInput placeholder="Email" formControlName="email" required>
-    <!--<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
     Helytelen e-mail cím formátum!
     </mat-error>
     <mat-error *ngIf="emailFormControl.hasError('required')">
     Az e-mail cím megadása <strong>kötelező</strong>!
-    </mat-error>-->
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
     <input matInput placeholder="Cím" formControlName="address" required>
-    <!--<mat-error *ngIf="addressFormControl.hasError('required')">
+    <mat-error *ngIf="addressFormControl.hasError('required')">
     Az cím megadása <strong>kötelező</strong>!
-    </mat-error>-->
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
     <input matInput placeholder="Telefonszám" formControlName="phone" required>
-<!--    <mat-error *ngIf="phoneFormControl.hasError('required')">
+   <mat-error *ngIf="phoneFormControl.hasError('required')">
     Az telefonszám megadása <strong>kötelező</strong>!
-    </mat-error>-->
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="loginForm">
     <input matInput placeholder="Jelszó" formControlName="password">
-    <!--<mat-error *ngIf="passwordFormControl.hasError('required')">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
     Az jelszó megadása <strong>kötelező</strong>!
-    </mat-error>-->
+    </mat-error>
   </mat-form-field>
   <br>
   <button mat-flat-button color="primary" type="submit">

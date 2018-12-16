@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from '../classes/menu';
+
 import { MenuService} from '../services/menu.service';
-//import {BucketService} from '../services/bucket.service';
+import {BucketService} from '../services/bucket.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,15 +12,20 @@ import { MenuService} from '../services/menu.service';
 })
 export class MenuComponent implements OnInit {
   private _menus: Menu[];
+  private menuToBucket: Menu;
 
- // private menuService;
- // private bucketService;
+  private menuService;
+  private bucketService;
+  private authService: AuthService;
+
   constructor(
-    private _menuService: MenuService
-    //, private _bucketService: BucketService
+    private _menuService: MenuService,
+    private _authService: AuthService,
+     private _bucketService: BucketService
   ) {
-    //this.menuService = _menuService;
-    //this.bucketService = _bucketService;
+    this.menuService = _menuService;
+    this.bucketService = _bucketService;
+    this.authService = _authService;
   }
 
   async ngOnInit() {
@@ -26,7 +33,9 @@ export class MenuComponent implements OnInit {
     //this._menus = this._menuService.getMenus();
   }
 
-  public addToBucket(id: Number): void {
+  public async addToBucket(id: Number) {
+    this.menuToBucket = await this._menuService.getMenu(id);
+    this.bucketService._menus.push(this.menuToBucket);
     /*
     if (!this.bucketService._selectedMenus.find(x => x.id === id)) {
       this.bucketService._selectedMenus.push(this.menuService.getMenu(id));

@@ -7,6 +7,8 @@ import {Order} from '../classes/order';
 import {CustomerService} from '../services/customer.service';
 import {CourierService} from '../services/courier.service';
 import { ActivatedRoute } from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import { Courier } from '../classes/courier';
 
 @Component({
   selector: 'app-bucket',
@@ -15,33 +17,88 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BucketComponent implements OnInit {
   private _order: Order;
-  //private _menus: Menu[];
-  //private itemsToDelete: Number[];
-  //private bucketService: BucketService;
-  //private orderService: OrderService;
-  //private customerService: CustomerService;
-  //private courierService: CourierService;
+  private _menus: Menu[];
+  private itemsToDelete: Number[];
+  private bucketService: BucketService;
+  private authService: AuthService;
+  private date: Date;
+
 
   constructor(
     private route: ActivatedRoute,
     private _orderService: OrderService,
-    private _bucketService: BucketService
-    //private _menuService: MenuService, private _bucketService: BucketService, private _orderService: OrderService,
-    //private _customerService: CustomerService, private _courierService: CourierService
+    private _bucketService: BucketService,
+    private _authService: AuthService,
+    private _courierService: CourierService
+
   ) {
-    //this.bucketService = _bucketService;
-    //this.orderService = _orderService;
-    //this.customerService = _customerService;
-    //this.courierService = _courierService;
-    //this.itemsToDelete = [];
+    this.bucketService = _bucketService;
+    this.itemsToDelete = [];
+    this.authService = _authService;
+    
   }
 
   async ngOnInit() {
-    const id: number = parseInt(this.route.snapshot.paramMap.get('id'));
-    this._order = await this._orderService.getOrder(id);
-    //this._menus = this.bucketService._selectedMenus;
-    //this._menus = await this._bucketService.getMenus();
+    this._menus = this.bucketService._menus;
+    
   }
+
+  public itemClicked(id:Number){
+    if(this.itemsToDelete.find(i => i === id)){
+      const index = this.itemsToDelete.findIndex(d => d === id);
+      this.itemsToDelete.splice(index, 1);
+      return;
+    }
+    this.itemsToDelete.push(id);
+    console.log(this.itemsToDelete);
+  }
+  public async sendOrder(){
+    this._order = new Order();
+    this._order.menus = this._menus;
+    this._order.customer = this._authService.customer;
+    this._order.courier = await this._courierService.getCourier(1); 
+    this._order.dateOfOrder =  new Date();
+    this.date = new Date();
+    this._order.dateOfCompletion= new Date(this.date.setMinutes(this.date.getMinutes() + 30 ));
+    var cost : Number  = 0;
+    for(var i = 0; i < this._menus.length ;i++){
+      cost = cost = this._menus[i].price;
+    }
+    this._order.cost = cost;
+
+    //this._orderService.saveOrder(this._order);//TODO
+
+    this._menus = [];
+    this.bucketService._menus = [];
+
+  }
+  public removeItems(){
+  }
+    /*
+    this.itemsToDelete.forEach(i => {
+      console.log('Removing with ID: ' + i);
+      const index = this._menus.findIndex(d => d.id === i);
+      if (i > -1) {
+        this.bucketService._menus.splice(index, 1);
+        this.itemsToDelete = [];
+        //this.bucketService.countMenuType[i.toString()] = 0;
+      }
+    });
+    */
+    /*
+    for(var i = 0;i < this._menus.length;i++){
+      for(var j = 0; j< this.itemsToDelete.length;j++){
+        if(this.itemsToDelete[j] == this._bucketService._menus[i].id){
+          this._menus.splice(i,1);
+        }
+      }
+    }
+    console.log(this._menus);
+    this.itemsToDelete = [];
+    *=
+  }
+
+
   /*
   public removeItems(): void {
     console.log('forEach start');
@@ -56,15 +113,6 @@ export class BucketComponent implements OnInit {
     });
   }
 
-  public itemClicked(id: Number): void {
-    console.log(id);
-    if (this.itemsToDelete.find(i => i === id)) {
-      const index = this.itemsToDelete.findIndex(d => d === id);
-      this.itemsToDelete.splice(index, 1);
-      return;
-    }
-      this.itemsToDelete.push(id);
-  }
 
   public deleteAll(): void {
     // If there is something in the bucket, a new Order is created

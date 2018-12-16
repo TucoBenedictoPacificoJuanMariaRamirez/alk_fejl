@@ -18,6 +18,6 @@ export class OrderComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this._orders = await this._orderService.getOrders(this._authService.customer.email);
+   // this._orders = await this._orderService.getOrders(this._authService.customer.email);
   }
 }

@@ -4,12 +4,12 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Customer, Roles} from '../classes/customer';
 import {HttpService} from '../services/http.service';
 
-/*export class MyErrorStateMatcher implements ErrorStateMatcher {
+export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
-}*/
+}
 
 @Component({
   selector: 'app-signup',
@@ -27,8 +27,11 @@ export class SignupComponent implements OnInit {
     phone: [''],
     password: ['']
   });
+  constructor(private fb: FormBuilder, private _httpService: HttpService) {
+    this.httpService = _httpService;
+  }
 
-  /*emailFormControl = new FormControl('', [
+  emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
@@ -45,10 +48,8 @@ export class SignupComponent implements OnInit {
     Validators.required
   ]);
 
-  matcher = new MyErrorStateMatcher();*/
-  constructor(private fb: FormBuilder, private _httpService: HttpService) {
-    this.httpService = _httpService;
-  }
+  matcher = new MyErrorStateMatcher();
+
 
   async ngOnInit() {
   }
@@ -63,7 +64,6 @@ export class SignupComponent implements OnInit {
       role: Roles.ROLE_CUSTOMER.toString()
     };
     try {
-      console.log(newCustomer);
       await this.httpService.post('register', newCustomer);
       this.message = 'Sikeres regisztráció!';
     }

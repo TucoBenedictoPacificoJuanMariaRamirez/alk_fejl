@@ -36,6 +36,7 @@ export class CouriersComponent implements OnInit {
     }
       this.couriersToDelete.push(id);      
   }
+  
   public addCourier(): void{
     var name = (document.getElementById("name") as HTMLInputElement).value;
     this._courierService.addCourier(name);

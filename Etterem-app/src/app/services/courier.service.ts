@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CourierService {
   private route: String = "couriers";
-  //private couriers: Courier[];
+  private couriers: Courier[];
   private c: Courier;
 
   constructor(
@@ -45,9 +45,12 @@ export class CourierService {
     
   }
 
-/*
-  public getRandomCourier(): Courier {
-    return this.couriers[Math.floor(Math.random() * this.couriers.length)];
+
+  public async getRandomCourier(): Promise<Courier> {
+    this.couriers = await this.getCouriers();
+    var randomId = Math.floor(Math.random() * (this.couriers.length))+1;
+    return this.httpService.get<Courier>(this.route + '/' + randomId);
+   // return this.couriers[Math.floor(Math.random() * this.couriers.length)];
   }
-*/
+
 }

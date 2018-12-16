@@ -3,6 +3,7 @@ package hu.elte.alkfejl.etterem.controllers;
 import hu.elte.alkfejl.etterem.entities.Customer;
 import hu.elte.alkfejl.etterem.entities.Order;
 import hu.elte.alkfejl.etterem.repositories.CustomerRepository;
+import hu.elte.alkfejl.etterem.repositories.OrderRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepo;
+    
+    @Autowired
+    private OrderRepository orderRepo;
     
     //@Autowired
     //private BCryptPasswordEncoder passwordEncoder;
@@ -69,6 +73,12 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(oCustomer.get().getOrders());
+    }
+    
+    @PostMapping("/{id}/orders")
+    public ResponseEntity<Order> postOrders(@RequestBody Order order) {
+       order.setId(null);
+       return ResponseEntity.ok(orderRepo.save(order));
     }
 
 }

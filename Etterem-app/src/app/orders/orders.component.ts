@@ -17,7 +17,7 @@ export class OrdersComponent implements OnInit {
 
   async ngOnInit() {
     //this.orders = this.orderService.getOrders();
-    this._orders = await this._orderService.getOrders();
+    //this._orders = await this._orderService.getOrders();
   }
 
 }

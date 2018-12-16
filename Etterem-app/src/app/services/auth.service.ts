@@ -22,7 +22,7 @@ export class AuthService {
       const customer: Customer = await this.httpService.post('login', email) as Customer;
       this.isLoggedIn = true;
       this.customer = customer;
-      console.log(customer);
+      //console.log(customer);
       return Promise.resolve(customer);
     } catch (e) {
       window.localStorage.setItem('token', '');

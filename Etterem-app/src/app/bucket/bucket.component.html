@@ -4,14 +4,15 @@
 <!--(selectionChange)="updateSelected($event, menus.selectedOptions)"-->
 <mat-selection-list #menus>
   <mat-list-option *ngFor='let menu of _menus' (click)="itemClicked(menu.id)">
-    <h3 matSubheader> {{ bucketService.countMenuType[menu.id] }} db {{ menu.name }} {{ menu.price }} Ft</h3>
+    <!--<h3 matSubheader> {{ bucketService.countMenuType[menu.id] }} db {{ menu.name }} {{ menu.price }} Ft</h3>-->
+    <h3 matSubheader>{{ menu.name }} {{ menu.price }} Ft</h3>
   </mat-list-option>
 </mat-selection-list>
 
 <mat-card-actions align="right">
-    <button mat-flat-button color="primary" (click)="deleteAll()" routerLink=''>
+    <button mat-flat-button color="primary" (click)="sendOrder()" routerLink=''>
         Rendel
-        <mat-icon></mat-icon>
+        <mat-icon>shop</mat-icon>
     </button>
   <button mat-flat-button color="primary" (click)="removeItems()" type="button" class="formSubmit">
       Törlés

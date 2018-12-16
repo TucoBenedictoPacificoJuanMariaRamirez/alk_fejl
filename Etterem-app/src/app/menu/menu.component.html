@@ -16,7 +16,7 @@
         <img mat-card-image src="{{ menu.imgUrl }}" alt="{{ menu.name }}">
       </mat-card-subtitle>
       <mat-card-actions align="right">
-      <button mat-flat-button color="primary" (click)="addToBucket(menu.id)">
+      <button mat-flat-button color="primary" (click)="addToBucket(menu.id)" disabled="{{!authService.isLoggedIn}}">
         Kosárba
         <mat-icon>shopping_cart</mat-icon>
       </button>
