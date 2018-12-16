@@ -43,8 +43,8 @@ public class OrderController {
     }
 
     @GetMapping("/{c}")
-    public ResponseEntity<Iterable<Order>> getOrders(@PathVariable String customerEmail) {
-        Optional<Customer> customer = customerRepo.findByEmail(customerEmail);
+    public ResponseEntity<Iterable<Order>> getOrders(@PathVariable Integer customerId) {
+        Optional<Customer> customer = customerRepo.findById(customerId);
         if(customer.isPresent()) {
             Iterable<Order> orders = orderRepo.findAllByCustomer(customer.get());
             return ResponseEntity.ok(orders);

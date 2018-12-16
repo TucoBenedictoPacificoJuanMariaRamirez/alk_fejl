@@ -48,7 +48,7 @@ export class CourierService {
 
   public async getRandomCourier(): Promise<Courier> {
     this.couriers = await this.getCouriers();
-    var randomId = Math.floor(Math.random() * (this.couriers.length))+1;
+    var randomId = Math.floor(Math.random() * (this.couriers.length)) + 1;
     return this.httpService.get<Courier>(this.route + '/' + randomId);
    // return this.couriers[Math.floor(Math.random() * this.couriers.length)];
   }

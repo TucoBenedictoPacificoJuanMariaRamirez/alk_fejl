@@ -4,6 +4,7 @@ import { Menu } from '../classes/menu';
 import { MenuService} from '../services/menu.service';
 import {BucketService} from '../services/bucket.service';
 import {AuthService} from '../services/auth.service';
+import {MenuCount} from '../classes/menu-count';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,8 @@ import {AuthService} from '../services/auth.service';
 })
 export class MenuComponent implements OnInit {
   private _menus: Menu[];
-  private menuToBucket: Menu;
+  // private menuToBucket: Menu;
+  private countMenuType: Number[];
 
   private menuService;
   private bucketService;
@@ -26,6 +28,7 @@ export class MenuComponent implements OnInit {
     this.menuService = _menuService;
     this.bucketService = _bucketService;
     this.authService = _authService;
+    this.countMenuType = [0,0,0,0,0];
   }
 
   async ngOnInit() {
@@ -34,16 +37,17 @@ export class MenuComponent implements OnInit {
   }
 
   public async addToBucket(id: Number) {
-    this.menuToBucket = await this._menuService.getMenu(id);
-    this.bucketService._menus.push(this.menuToBucket);
-    /*
-    if (!this.bucketService._selectedMenus.find(x => x.id === id)) {
-      this.bucketService._selectedMenus.push(this.menuService.getMenu(id));
-    }
+    /*this.menuToBucket = await this._menuService.getMenu(id);
+    this.bucketService._menus.push(this.menuToBucket);*/
 
-    this.bucketService.countMenuType[id.toString()]++;
-    console.log('Adding menu with ID: ' + id);
-    */
+    let currMenuCount = this.bucketService._menus.find(x => x.menu.id === id)
+    if (!currMenuCount) {
+      this.bucketService._menus.push({menu: await this._menuService.getMenu(id), count: 1} as MenuCount);
+    }
+    else {
+      currMenuCount.count++;
+      console.log('Adding menu with ID: ' + id);
+    }
+    console.log(this.bucketService._menus);
   }
-  
 }

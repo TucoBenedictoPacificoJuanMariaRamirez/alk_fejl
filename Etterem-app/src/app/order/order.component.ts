@@ -11,13 +11,18 @@ import {AuthService} from '../services/auth.service';
 export class OrderComponent implements OnInit {
   private _orders: Order[];
   private displayedColumns = ['id', 'customer', 'courier', 'dateOfOrder', 'dateOfCompletion', 'cost'];
+  private _orderService: OrderService;
+  private _authService: AuthService;
 
   constructor(
-      private _orderService: OrderService,
-      private _authService: AuthService
-  ) { }
+      private orderService: OrderService,
+      private authService: AuthService
+  ) {
+    this._orderService = orderService;
+    this._authService = authService;
+  }
 
   async ngOnInit() {
-   // this._orders = await this._orderService.getOrders(this._authService.customer.email);
+    this._orders = await this.orderService.getOrders();
   }
 }

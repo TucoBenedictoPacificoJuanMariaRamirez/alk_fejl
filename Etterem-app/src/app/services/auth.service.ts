@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {Customer} from '../classes/customer';
 import {HttpService} from './http.service';
 import {Router} from '@angular/router';
+import {BucketService} from './bucket.service';
+import {MenuService} from './menu.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,15 @@ import {Router} from '@angular/router';
 export class AuthService {
   public isLoggedIn: boolean = false;
   public customer: Customer = null;
+  private bucketService: BucketService;
 
   constructor(
       private httpService: HttpService,
-      private router: Router
-  ) { }
+      private router: Router,
+      private _bucketService: BucketService
+  ) {
+    this.bucketService = this.bucketService;
+}
 
   public async login(email: string, password: string): Promise<Customer> {
     try {
@@ -35,6 +41,7 @@ export class AuthService {
     this.isLoggedIn = false;
     this.customer = null;
     window.localStorage.setItem('token', '');
+    this._bucketService._menus = [];
     this.router.navigate(['/login']);
   }
 
