@@ -25,6 +25,10 @@ export class OrderService {
     return this.httpService.get<Order[]>(this.route);
   }
 
+  public getOrders(customerMail): Promise<Order[]>{
+    return this.httpService.get<Order[]>(this.route + '/' + customerMail);
+  }
+
   public getOrder(id: Number): Promise<Order> {
     //return this.orders.find((order: Order) => order.id === id);
     return this.httpService.get<Order>(this.route + '/' + id)

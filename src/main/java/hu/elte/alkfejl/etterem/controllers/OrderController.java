@@ -1,12 +1,15 @@
 package hu.elte.alkfejl.etterem.controllers;
 
+import hu.elte.alkfejl.etterem.entities.Customer;
 import hu.elte.alkfejl.etterem.entities.Order;
+import hu.elte.alkfejl.etterem.repositories.CustomerRepository;
 import hu.elte.alkfejl.etterem.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -15,6 +18,9 @@ public class OrderController {
 
     @Autowired
     private OrderRepository orderRepo;
+
+    @Autowired
+    private CustomerRepository customerRepo;
 
     @GetMapping("")
     public ResponseEntity<Iterable<Order>> getAll() {
@@ -34,6 +40,16 @@ public class OrderController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(order.get());
+    }
+
+    @GetMapping("/{c}")
+    public ResponseEntity<Iterable<Order>> getOrders(@PathVariable String customerEmail) {
+        Optional<Customer> customer = customerRepo.findByEmail(customerEmail);
+        if(customer.isPresent()) {
+            Iterable<Order> orders = orderRepo.findAllByCustomer(customer.get());
+            return ResponseEntity.ok(orders);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PatchMapping("/{id}")

@@ -28,6 +28,14 @@ public class RegistrationController {
 
     @PostMapping("")
     public ResponseEntity<Customer> post(@RequestBody Customer newCustomer) {
+        // If any of the fields empty, we return bad request
+        if( newCustomer.getEmail().equals("") ||
+            newCustomer.getPassword().equals("") ||
+            newCustomer.getAddress().equals("") ||
+            newCustomer.getPhone().equals("")
+        )
+            return ResponseEntity.badRequest().build();
+
         Optional<Customer> customer = customerRepo.findByEmail(newCustomer.getEmail());
         // If the user does not exist, we add him/her
         if(! customer.isPresent()) {

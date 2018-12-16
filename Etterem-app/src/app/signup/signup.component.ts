@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {Customer, Roles} from '../classes/customer';
+import {HttpService} from '../services/http.service';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
+/*export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
-}
+}*/
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +17,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  emailFormControl = new FormControl('', [
+  private message: String;
+  private httpService: HttpService;
+
+  private regForm = this.fb.group( {
+    fullname: [''],
+    email: [''],
+    address: [''],
+    phone: [''],
+    password: ['']
+  });
+
+  /*emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
@@ -32,10 +45,31 @@ export class SignupComponent implements OnInit {
     Validators.required
   ]);
 
-  matcher = new MyErrorStateMatcher();
-  constructor() { }
+  matcher = new MyErrorStateMatcher();*/
+  constructor(private fb: FormBuilder, private _httpService: HttpService) {
+    this.httpService = _httpService;
+  }
 
   async ngOnInit() {
+  }
+
+  private async onSubmit() {
+    let newCustomer = {
+      email: this.regForm.get('email').value,
+      fullname: this.regForm.get('fullname').value,
+      address: this.regForm.get('address').value,
+      phone: this.regForm.get('phone').value,
+      password: this.regForm.get('password').value,
+      role: Roles.ROLE_CUSTOMER.toString()
+    };
+    try {
+      console.log(newCustomer);
+      await this.httpService.post('register', newCustomer);
+      this.message = 'Sikeres regisztráció!';
+    }
+    catch(e) {
+      this.message = 'Sikertelen regisztráció!';
+    }
   }
 
 }

@@ -9,12 +9,13 @@
     <input matInput placeholder="Jelszó" type="password" formControlName="password" required>
     <mat-error *ngIf="loginForm.get('password').invalid">Password is required</mat-error>
   </mat-form-field>
+  <br>
   <button mat-flat-button color="primary" type="submit" name="submit">
     Bejelentkezés
     <mat-icon>person</mat-icon>
   </button>
 
-  <div>
+  <div class="messageDiv">
     {{message}}
   </div>
 </form>
