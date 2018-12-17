@@ -127,6 +127,71 @@ Az admin felhasználó:
 
 ## TESZTÉS
 
+## Felhasználói dokumentáció
+
+#### A futtatáshoz ajánlott hardver-, szoftver konfiguráció
+	* Lásd: Fejlesztői környezet ( Használt eszközök, telepített szoftverek )
+
+#### Telepítés lépései
+
+1. https://github.com/TucoBenedictoPacificoJuanMariaRamirez/alk_fejl oldalt keresse fel
+2. A program letöltéséhez a "Clone or Download" gomb alatt válassza a "Download as Zip" opciót
+3. A letöltött fájlt használat előtt ki kell csomagolnia, ugyanis tömörített formátumban van
+4. Nyissuk meg a maven (backend) projektet, fordítsuk és futtassuk
+5. Ezek után nyisson meg egy parancssort az állomány mappáján belül
+6. Adja ki az npm install parancsot
+7. Adja ki az ng serve parancsot (Alapértelmezetten a localhost:4200-as porton fog futni, ld:következő pont)
+
+#### A program használata
+
+1. Nyisson meg egy tetszőleges böngésző programot
+2. Írja a keresősávba az oldel elérését: "http://localhost:4200"
+3. Ekkor vendégként látja az oldalt, a további funkciók eléréséhez Regisztrációra és Bejelentkezésre lesz szüksége
+
+##### GUEST
+* Regisztráció és bejelentkezés
+	Az oldalra bejelentkezni és rendeléseket leadni csak regisztációt követően lehet.
+	A regisztrációhoz a **"Regisztráció"** fülre kell kattintani. Ekkor megjelenik egy kitöltendő űrlap, 
+	melyen az összes mező kitöltése kötelező. A **"Regisztáció"** gomb megnyomása után a következő üzenet fog megjelenni: **"Sikeres regisztráció!"**.
+	Ezt követően a regisztráció során megadott e-mail címmel és a választott jelszóval lehet bejelentkezni
+	a jobb felső sarokban található **"Bejelentkezés"** fülön.
+* Menük megtekintése
+	Az étlapot még nem regisztrált vendégek is megtekinthetik a **"Menük"** gombra kattintva. 
+	Itt a kosárba helyezés még nem lehetságes, majd csak a bejelentkezés után válik elérhetővé ez a funkció.
+
+##### CUSTOMER
+* Menük megtekintése
+	Az étlapot a bejelentkezett felhasználók továbbra is megtekinthetik.
+* Kosárba helyezés
+	A kívánt termékeket a **"Kosárba"** gomb megnyomásával lehet a kosarunkba helyezni. 
+	Egy ételt akár többször is a kosarunkba helyezhetünk ekkor a mennyiség fog megnövekedni.
+* Kosár tartalmának megtekintése
+	A kosarunk tartalmát a **"Kosár"** fül alatt találjuk. Itt láthatjuk a mennyiségeket és a különböző ételeket egy listában.
+	Ha nem szeretnénk ezt már módosítani a **"Rendel"** gomb megnyomásával elküldhetjük a rendelésünket.
+	Ha még változtatni szeretnénk a rendelés leadása előtt, akkor kijelölhetjük a nem kívánt elemeket és a **"Törlés"** gomb megnyomásával
+	eltávolíthatjuk azokat.
+* Korábbi rendelések megtekintése
+	A **"Saját rendelések"** alatt a korábban leadott rendeléseinket láthatjuk. 
+	A táblázatban szerepel majd a rendelést teljesítő futár neve és a fizetett végösszeg is.
+* Adatok módosítása
+	Ezen az oldalon, csak a módosítani kívánt adatokat kell megadnunk. Módosítani lehet a nevünket, e-mail címünket, lakcímünket valamint a telefonszámunkat.
+	A nem kitöltött mezők automatikusan azt jelentik, hogy az adott adatunkat nem szeretnénk módosítani.
+	A **"Módosítás"** gomb megnyomása után azonnal megváltoznak a felhasználó adatai, így ha az e-mail cím is módosult, ezentúl az új címmel lehet majd bejelentkezni az oldalra.
+	
+	
+##### ADMIN
+* Menük megtekintése
+	Az étlapot a bejelentkezett admin is megtekintheti, de továbbra sem tud majd onnan kosárba helyezni termékeket.
+* Futárok kilistázása
+	Az admin számára a "Futárok" fülre kattintva megjelennek a futárok egy listában.
+	Itt hozzá lehet adni új futárokat: "Új futár neve" mező kitöltését követően a "Hozzáadás" gombra kattintva.
+	Valamint kijelölést követően a kijelölt futárokat el lehet távolítani, erre a "Törlés" gomb szolgál.
+* Összes rendelés megtekintése
+	Szintén csak az admin tekintheti meg az összes rendelést. A "Rendelések" fülre kattintva kerülnek ezek kilistázásra.
+
+
+
+
 ---
 
 #### Fejlesztők
