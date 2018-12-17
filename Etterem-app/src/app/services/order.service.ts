@@ -18,10 +18,13 @@ export class OrderService {
     private _authService: AuthService,
     private router: Router
     ) {
-    this.httpService = _httpService;
-    this.authService = _authService;
-    this.id = this.authService.customer.id;
-    this.route  = 'customers/' + this.id + '/orders';
+    try {
+      this.httpService = _httpService;
+      this.authService = _authService;
+      this.id = this.authService.customer.id;
+      this.route = 'customers/' + this.id + '/orders';
+    }
+    catch(e) {}
   }
 
   public getOrders(): Promise<Order[]> {

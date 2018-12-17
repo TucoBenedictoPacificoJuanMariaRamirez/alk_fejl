@@ -23,7 +23,6 @@ const routes: Routes = [
     {path: "couriers", component: CouriersComponent},
     {path: "order", component: OrderComponent},
     {path: "profile", component: ProfileComponent},
-    
 ];
 
 @NgModule({

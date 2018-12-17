@@ -18,12 +18,12 @@
 
   <ng-container matColumnDef="dateOfOrder">
     <th mat-header-cell *matHeaderCellDef> Rendelés leadása </th>
-    <td mat-cell *matCellDef="let order"> {{!order.dateOfCompletion ? '' : order.dateOfCompletion.toLocaleString()}} </td>
+    <td mat-cell *matCellDef="let order"> {{!order.dateOfCompletion ? '' : order.dateOfCompletion.toLocaleString().substring(0, order.dateOfOrder.toLocaleString().indexOf('.')).replace('T', ' ')}} </td>
   </ng-container>
 
   <ng-container matColumnDef="dateOfCompletion">
     <th mat-header-cell *matHeaderCellDef> Rendelés teljesítése </th>
-    <td mat-cell *matCellDef="let order"> {{!order.dateOfCompletion ? '' : order.dateOfCompletion.toLocaleString()}} </td>
+    <td mat-cell *matCellDef="let order"> {{!order.dateOfCompletion ? '' : order.dateOfCompletion.toLocaleString().substring(0, order.dateOfOrder.toLocaleString().indexOf('.')).replace('T', ' ')}} </td>
   </ng-container>
 
   <ng-container matColumnDef="cost">
