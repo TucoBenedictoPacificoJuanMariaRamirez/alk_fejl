@@ -183,11 +183,11 @@ Az admin felhasználó:
 * Menük megtekintése
 	Az étlapot a bejelentkezett admin is megtekintheti, de továbbra sem tud majd onnan kosárba helyezni termékeket.
 * Futárok kilistázása
-	Az admin számára a "Futárok" fülre kattintva megjelennek a futárok egy listában.
-	Itt hozzá lehet adni új futárokat: "Új futár neve" mező kitöltését követően a "Hozzáadás" gombra kattintva.
-	Valamint kijelölést követően a kijelölt futárokat el lehet távolítani, erre a "Törlés" gomb szolgál.
+	Az admin számára a **"Futárok"** fülre kattintva megjelennek a futárok egy listában.
+	Itt hozzá lehet adni új futárokat: **"Új futár neve"** mező kitöltését követően a **"Hozzáadás"** gombra kattintva.
+	Valamint kijelölést követően a kijelölt futárokat el lehet távolítani, erre a **"Törlés"** gomb szolgál.
 * Összes rendelés megtekintése
-	Szintén csak az admin tekintheti meg az összes rendelést. A "Rendelések" fülre kattintva kerülnek ezek kilistázásra.
+	Szintén csak az admin tekintheti meg az összes rendelést. A **"Rendelések"** fülre kattintva kerülnek ezek kilistázásra.
 
 
 
