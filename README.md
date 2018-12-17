@@ -127,7 +127,7 @@ Az admin felhasználó:
 
 ## TESZTÉS
 
-## Felhasználói dokumentáció
+## FELHASZNÁLÓI DOKUMENTÁCIÓ
 
 #### A futtatáshoz ajánlott hardver-, szoftver konfiguráció
 	* Lásd: Fejlesztői környezet ( Használt eszközök, telepített szoftverek )
