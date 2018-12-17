@@ -64,6 +64,7 @@ Az admin felhasználó:
 * GET/PATCH/DELETE /api/couriers/{id} - Egy adott futár adatainak lekérdezése, módosítása, törlése
 * GET /api/customers - A vásárlók adatainak lekérdezése
 * GET/PATCH/DELETE /api/customers/{id} - Egy adott várásló adatainak lekérdezése
+* GET /api/customers/{id}/orders - Egy adott várásló rendeléseinek lekérdezése
 
 ### Felhasználóifelület-modell
 
@@ -125,7 +126,29 @@ Az admin felhasználó:
 ### Frontend könyvtárszerkezet
 ![Ezen a képen látható a projekt mappa struktúrája](frontend_folderstructure.png "Frontend Könyvtárszerkezet")
 
-## TESZTÉS
+### Kliensoldali szolgáltatások
+* Bucket Service - A Kosár funkciót biztosító szolgáltatás, mindig tárolja a Kosár tartalmát és képes annak módosítsára.
+* Auth Service - A felhasználók bejelentkezéseit kezeli, nyilvántartja ki éppen a bejelentkezett felhasználó és a be- és kijelentkezésre biztosít függvényeket.
+* Http Service - Ez a szolgáltatás kezeli a backend felé irányuló HTTP kéréseket, beleértve a JSON adatot tartalmazókat.
+* Courier Service - A futárokat kezelő szolgáltatás
+* Customer Service - A felhasználókat (vásárlókat) kezelő szolgáltatás
+* Menu Service - Az étlapon szereplő menük kezelésére létrehozott szolgáltatás
+* Order Service - Az egyes rendeléseket és a hozzájuk tartozó függvényeket kezelő szolgáltatás
+
+### Kapcsolat a szerverrel
+A backend több, a frontend részt kiszolgálni hivatott REST végponttal rendelkezik. Ezekre a végpontokra a frontend képes HTTP kéréseket küldeni, a megfelelő HTTP method és bizonyos esetben a megfelelő JSON adat küldésével.
+Ez a gyakorlatban az Angular HttpClient-je segítségével történik. A frontend tehát nem tart fenn folyamatos (Socket) kapcsolatot a backend-el, hanem REST kéréseket használva kérdezi le az épp neki kellő adatokat.
+
+### A rendelés elküldésének a folyamata
+Az alábbi lépések követik egymást akkor, amikor egy bejelentkezett felhasználó elküld egy rendelést:
+1. A felhasználó a Kosár oldalon a Rendelés gombra kattint
+2. Ekkor az onSubmit esemény hatására meghívódik egy kliensoldali függvény
+3. Ez a függvény a kosár adatai alapján összerakja a rendelést
+4. Ezután meghívódik egy szervízfüggvény, amely a kapott rendelést elküldi a HTTP szolgáltatás felé
+5. A HTTP szolgáltatás összeállítja a HTTP kérést és elküldi a backend felé, benne a leadott rendeléssel (JSON formátumban)
+6. A backend-en a megfelelő REST végpont megkapja a REST kérést és az adott végpont Controllere fel is dolgozza
+7. A Controller visszaküld egy HTTP kérést a frontend felé, amit a HTTP szolgáltatás bevár
+8. Végül a visszakapott válasz alapján, amennyiben helyes, a frontend visszaugrik a menüket tartalmazó lapra
 
 ## FELHASZNÁLÓI DOKUMENTÁCIÓ
 
