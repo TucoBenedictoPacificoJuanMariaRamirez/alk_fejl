@@ -1,11 +1,9 @@
 <h2>
   A kosaram tartalma
 </h2>
-<!--(selectionChange)="updateSelected($event, menus.selectedOptions)"-->
 <mat-selection-list #menus>
   <mat-list-option *ngFor='let menu of _menus' (click)="itemClicked(menu.menu.id)">
-    <h3 matSubheader> {{ menu.count }} db {{ menu.menu.name }} {{ menu.menu.price }} Ft</h3>
-    <!--<h3 matSubheader>{{ menu.name }} {{ menu.price }} Ft</h3>-->
+    <h3 matSubheader> {{ menu.count }} db {{ menu.menu.name }} {{ menu.count * menu.menu.price }} Ft</h3>
   </mat-list-option>
 </mat-selection-list>
 

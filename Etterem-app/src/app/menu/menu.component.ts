@@ -13,7 +13,6 @@ import {MenuCount} from '../classes/menu-count';
 })
 export class MenuComponent implements OnInit {
   private _menus: Menu[];
-  // private menuToBucket: Menu;
   private countMenuType: Number[];
 
   private menuService;
@@ -33,12 +32,9 @@ export class MenuComponent implements OnInit {
 
   async ngOnInit() {
     this._menus = await this._menuService.getMenus();
-    //this._menus = this._menuService.getMenus();
   }
 
   public async addToBucket(id: Number) {
-    /*this.menuToBucket = await this._menuService.getMenu(id);
-    this.bucketService._menus.push(this.menuToBucket);*/
 
     let currMenuCount = this.bucketService._menus.find(x => x.menu.id === id)
     if (!currMenuCount) {
